@@ -13,34 +13,26 @@ namespace AdventOfCode._2019.Day2
 
         public void PartOne()
         {
-            if (File.Exists(Path))
+            string input = File.ReadAllText(Path);
+            int[] numbersInput = input.Split(",").Select(Int32.Parse).ToArray();
+            int? solution = null;
+
+            IntcodeComputer computer = new IntcodeComputer(numbersInput);
+            computer.PrepareProgram();
+
+            try
             {
-                string input = File.ReadAllText(Path);
-                int[] numbersInput = input.Split(",").Select(Int32.Parse).ToArray();
-                int? solution = null;
-
-                IntcodeComputer computer = new IntcodeComputer(numbersInput);
-                computer.PrepareProgram();
-
-                try
-                {
-                    computer.RestoreGravityAssistProgram();
-                    solution = computer.ValueAt(0);
-                }
-                catch (ArgumentException e)
-                {
-                    Console.WriteLine(e.Message);
-                }
-
-                if (solution != null)
-                {
-                    Console.WriteLine($"Part One: {solution}");
-                }
-
+                computer.RestoreGravityAssistProgram();
+                solution = computer.ValueAt(0);
             }
-            else
+            catch (ArgumentException e)
             {
-                Console.WriteLine("File with puzzle input not found");
+                Console.WriteLine(e.Message);
+            }
+
+            if (solution != null)
+            {
+                Console.WriteLine($"Part One: {solution}");
             }
         }
 

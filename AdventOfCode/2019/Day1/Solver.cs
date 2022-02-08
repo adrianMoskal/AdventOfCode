@@ -13,46 +13,32 @@ namespace AdventOfCode._2019.Day1
 
         public void PartOne()
         {
-            if (File.Exists(Path))
-            {
-                string[] lines = File.ReadAllLines(Path);
-                double fuelNeeded = lines.Sum(m => Math.Floor(double.Parse(m) / 3) - 2);
+            string[] lines = File.ReadAllLines(Path);
+            double fuelNeeded = lines.Sum(m => Math.Floor(double.Parse(m) / 3) - 2);
 
-                Console.WriteLine($"Part One: {fuelNeeded}");
-            }
-            else
-            {
-                Console.WriteLine("File with puzzle input not found");
-            }
+            Console.WriteLine($"Part One: {fuelNeeded}");
         }
 
         public void PartTwo()
         {
-            if (File.Exists(Path))
+            string[] lines = File.ReadAllLines(Path);
+            double[] masses = lines.Select(m => Double.Parse(m)).ToArray<double>();
+
+            Stack<double> modulesMass = new Stack<double>(masses);
+
+            double fuelSum = 0;
+            while (modulesMass.Any())
             {
-                string[] lines = File.ReadAllLines(Path);
-                double[] masses = lines.Select(m => Double.Parse(m)).ToArray<double>();
+                double mass = modulesMass.Pop();
+                double fuel = Math.Floor(mass / 3) - 2;
 
-                Stack<double> modulesMass = new Stack<double>(masses);
-
-                double fuelSum = 0;
-                while (modulesMass.Any())
+                if (fuel > 0)
                 {
-                    double mass = modulesMass.Pop();
-                    double fuel = Math.Floor(mass / 3) - 2;
-
-                    if (fuel > 0)
-                    {
-                        fuelSum += fuel;
-                        modulesMass.Push(fuel);
-                    }
+                    fuelSum += fuel;
+                    modulesMass.Push(fuel);
                 }
-                Console.WriteLine($"Part Two: {fuelSum}");
             }
-            else
-            {
-                Console.WriteLine("File with puzzle input not found");
-            }
+            Console.WriteLine($"Part Two: {fuelSum}");
         }
     }
 }
