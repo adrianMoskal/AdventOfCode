@@ -99,27 +99,25 @@ namespace AdventOfCode._2019.Day3
                 {
                     case 'U':
                         points = this.MoveUp(value);
-                        path.AddRange(points);
                         break;
 
                     case 'R':
                         points = this.MoveRight(value);
-                        path.AddRange(points);
                         break;
 
                     case 'D':
                         points = this.MoveDown(value);
-                        path.AddRange(points);
                         break;
 
                     case 'L':
                         points = this.MoveLeft(value);
-                        path.AddRange(points);
+                        
                         break;
 
                     default:
                         throw new ArgumentException("Wrong direction argument");
                 }
+                path.AddRange(points);
             }
 
             return path;
