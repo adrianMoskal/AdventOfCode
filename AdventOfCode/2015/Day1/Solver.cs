@@ -29,7 +29,7 @@ namespace AdventOfCode._2015.Day1
             var levels = lines.Select(x => x.Equals('(') ? ++level : --level).ToList();
             int position = levels.IndexOf(-1) + 1;
 
-            Console.WriteLine($"Part One: {position}");
+            Console.WriteLine($"Part Two: {position}");
         }
     }
 }
