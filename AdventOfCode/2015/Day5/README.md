@@ -1,4 +1,6 @@
-﻿# --- Day 5: Doesn't He Have Intern-Elves For This? ---
+﻿SOURCE: https://adventofcode.com/2015/day/5
+
+# --- Day 5: Doesn't He Have Intern-Elves For This? ---
 Santa needs help figuring out which strings in his text file are naughty or nice.
 
 A **nice string** is one with all of the following properties:
