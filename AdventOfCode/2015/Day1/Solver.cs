@@ -13,20 +13,20 @@ namespace AdventOfCode._2015.Day1
 
         public void PartOne()
         {
-            string lines = File.ReadAllText(Path);
+            string input = File.ReadAllText(Path);
 
             int level = 0;
-            lines.Sum(x => x.Equals('(') ? level++ : level--);
+            input.Sum(x => x.Equals('(') ? level++ : level--);
 
             Console.WriteLine($"Part One: {level}");
         }
 
         public void PartTwo()
         {
-            string lines = File.ReadAllText(Path);
+            string input = File.ReadAllText(Path);
 
             int level = 0;
-            var levels = lines.Select(x => x.Equals('(') ? ++level : --level).ToList();
+            var levels = input.Select(x => x.Equals('(') ? ++level : --level).ToList();
             int position = levels.IndexOf(-1) + 1;
 
             Console.WriteLine($"Part Two: {position}");
