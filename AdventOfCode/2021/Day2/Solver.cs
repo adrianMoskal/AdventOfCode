@@ -30,7 +30,7 @@ namespace AdventOfCode._2021.Day2
             Console.WriteLine($"Part Two: {solution}");
         }
 
-        IEnumerable<List<int>> Dive(string[] instructions, bool aiming)
+        private IEnumerable<List<int>> Dive(string[] instructions, bool aiming)
         {
             var state = new List<int>() { 0, 0, 0 };
             yield return state;
