@@ -9,7 +9,7 @@ namespace AdventOfCode._2015.Day11
 {
     class Solver : ISolver
     {
-        private const string Path = @"../../../2015/Day11/puzzleInput.txt";
+        public string Path { get; set; }
 
         public void PartOne()
         {

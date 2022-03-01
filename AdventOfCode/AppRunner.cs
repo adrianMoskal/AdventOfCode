@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,26 +11,35 @@ namespace AdventOfCode
     {
         public static void Run(string[] args)
         {
-            if (args.Length != 2)
+            try
             {
-                Console.WriteLine("Wrong format!");
-                Console.WriteLine("dotnet run <year> day<number>");
+                Validator.Validate(args);
+
+                StringBuilder inputString = new StringBuilder("AdventOfCode._");
+
+                foreach (var arg in args)
+                {
+                    inputString.Append(arg + ".");
+                }
+                inputString.Append("Solver");
+
+                Type type = Type.GetType(inputString.ToString());
+                dynamic o = Activator.CreateInstance(type);
+                ISolver solver = (ISolver)o;
+                o.Path = string.Format("{0}{1}{2}{1}puzzleInput.txt", Environment.CurrentDirectory, Path.DirectorySeparatorChar, string.Join(Path.DirectorySeparatorChar, args));
+
+                solver.PartOne();
+                solver.PartTwo();
             }
 
-            StringBuilder inputString = new StringBuilder("AdventOfCode._");
-
-            foreach(var arg in args)
+            catch (ArgumentNullException)
             {
-                inputString.Append(arg + ".");
+                Console.WriteLine("There is no solution for this quiz yet :c");
             }
-            inputString.Append("Solver");
-
-            Type type = Type.GetType(inputString.ToString());
-            object o = Activator.CreateInstance(type);
-            ISolver solver = (ISolver)o;
-
-            solver.PartOne();
-            solver.PartTwo();
+            catch (AdventOfCodeException e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
