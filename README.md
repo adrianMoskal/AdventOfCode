@@ -48,12 +48,13 @@ This is console application with my solutions of AdventOfCode quizes. In this mo
 
 ## Getting Started
 
-1. Clone the repo
+1. Install .NET
+2. Clone the repo
    ```sh
    git clone https://github.com/adrianMoskal/AdventOfCode.git
    ```
-2. Navigate to AdventOfCode folder with source code and **change puzzleInput.txt** files content to your puzzle input.
-3. Use this command to run explicit solution:
+3. Navigate to AdventOfCode folder with source code and **change puzzleInput.txt** files content to your puzzle input.
+4. Use this command to run explicit solution:
   ```sh
   dotnet run <year> Day<number>
   ```
