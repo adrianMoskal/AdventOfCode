@@ -30,7 +30,52 @@ namespace AdventOfCode._2018.Day2
 
         public void PartTwo()
         {
-            Console.WriteLine("No Part Two yet");
+            string[] lines = File.ReadAllLines(Path);
+
+            (string, string) ids = DifferByOne(lines);
+            string firstId = ids.Item1;
+            string secondId = ids.Item2;
+
+            StringBuilder sb = new StringBuilder();
+            for (int x = 0; x < firstId.Length; x++)
+            {
+                if (firstId[x].Equals(secondId[x]))
+                {
+                    sb.Append(firstId[x]);
+                }
+            }
+
+            string solution = sb.ToString();
+            Console.WriteLine($"Part Two: {solution}");
+        }
+
+
+        private (string, string) DifferByOne(string[] lines)
+        {
+            foreach (var first in lines)
+            {
+                foreach (var second in lines)
+                {
+                    int differs = 0;
+                    for (int x = 0; x < first.Length; x++)
+                    {
+                        if (!first[x].Equals(second[x]))
+                        {
+                            differs++;
+                        }
+
+                        if (differs > 1)
+                        {
+                            break;
+                        }
+                    }
+                    if (differs == 1)
+                    {
+                        return (first, second);
+                    }
+                }
+            }
+            return ("", "");
         }
     }
 }
