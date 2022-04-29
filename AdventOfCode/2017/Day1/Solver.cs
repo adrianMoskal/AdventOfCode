@@ -15,20 +15,24 @@ namespace AdventOfCode._2017.Day1
         {
             string input = File.ReadAllText(Path);
 
-            var solution = Enumerable.Range(0, input.Length - 1)
-                    .Where(x => input[x] == input[x+1])
+            var solution = Enumerable.Range(0, input.Length)
+                    .Where(x => input[x] == input[(x+1) % input.Length])
                     .Select(x => int.Parse(input[x].ToString()))
                     .Sum();
-
-            if(input.Last() == input.First())
-                solution += int.Parse(input.First().ToString());
 
             Console.WriteLine($"Part One: {solution}");
         }
 
         public void PartTwo()
         {
+            string input = File.ReadAllText(Path);
 
+            var solution = Enumerable.Range(0, input.Length)
+                    .Where(x => input[x] == input[(x + input.Length / 2) % input.Length])
+                    .Select(x => int.Parse(input[x].ToString()))
+                    .Sum();
+
+            Console.WriteLine($"Part Two: {solution}");
         }
     }
 }
