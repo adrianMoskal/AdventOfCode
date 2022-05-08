@@ -29,9 +29,16 @@ namespace AdventOfCode._2017.Day2
         {
             var rows = File.ReadAllText(Path).Split('\n');
 
+            int solution = 0;
+            foreach (var row in rows)
+            {
+                var elements = row.Split('\t').Select(int.Parse);
+                solution += elements.SelectMany(e => elements,
+                    (x, y) => (x > y && x % y == 0) ? x / y : 0
+                ).Sum();
+            }
 
-
-            //Console.WriteLine($"Part Two: {solution}");
+            Console.WriteLine($"Part Two: {solution}");
         }
     }
 }
