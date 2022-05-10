@@ -2,10 +2,9 @@ namespace AdventOfCode._2020.Day2;
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-    public void PartOne()
+    public void PartOne(string path)
     {
-       var lines = File.ReadAllLines(Path).ToList();
+       var lines = File.ReadAllLines(path).ToList();
 
        var passwords = new List<PasswordPolicy>();
        lines.ForEach(x => passwords.Add(new PasswordPolicy(x)));
@@ -15,9 +14,9 @@ internal sealed class Solver : ISolver
        System.Console.WriteLine($"Part One: {solution}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        var lines = File.ReadAllLines(Path).ToList();
+        var lines = File.ReadAllLines(path).ToList();
 
         var passwords = new List<PasswordPolicy>();
         lines.ForEach(x => passwords.Add(new PasswordPolicy(x)));

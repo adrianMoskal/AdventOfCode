@@ -2,8 +2,6 @@
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-
     private enum Operation
     {
         TurnOn = 0,
@@ -11,9 +9,9 @@ internal sealed class Solver : ISolver
         Toggle
     }
 
-    public void PartOne()
+    public void PartOne(string path)
     {
-        string[] lines = File.ReadAllLines(Path);
+        string[] lines = File.ReadAllLines(path);
         var instructions = GetInstructions(lines);
 
         bool[,] grid = new bool[1000, 1000];
@@ -48,9 +46,9 @@ internal sealed class Solver : ISolver
         Console.WriteLine($"Part One: {solution}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        string[] lines = File.ReadAllLines(Path);
+        string[] lines = File.ReadAllLines(path);
         var instructions = GetInstructions(lines);
 
         int[,] grid = new int[1000, 1000];

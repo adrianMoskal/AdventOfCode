@@ -2,19 +2,17 @@
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-
-    public void PartOne()
+    public void PartOne(string path)
     {
-        string[] lines = File.ReadAllLines(Path);
+        string[] lines = File.ReadAllLines(path);
         double fuelNeeded = lines.Sum(m => Math.Floor(double.Parse(m) / 3) - 2);
 
         Console.WriteLine($"Part One: {fuelNeeded}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        string[] lines = File.ReadAllLines(Path);
+        string[] lines = File.ReadAllLines(path);
         double[] masses = lines.Select(m => Double.Parse(m)).ToArray<double>();
 
         Stack<double> modulesMass = new Stack<double>(masses);

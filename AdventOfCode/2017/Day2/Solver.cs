@@ -2,11 +2,9 @@ namespace AdventOfCode._2017.Day2;
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-
-    public void PartOne()
+    public void PartOne(string path)
     {
-        var rows = File.ReadAllText(Path).Split('\n');
+        var rows = File.ReadAllText(path).Split('\n');
 
         int solution = 0;
         foreach (var row in rows)
@@ -18,9 +16,9 @@ internal sealed class Solver : ISolver
         Console.WriteLine($"Part One: {solution}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        var rows = File.ReadAllText(Path).Split('\n');
+        var rows = File.ReadAllText(path).Split('\n');
 
         int solution = 0;
         foreach (var row in rows)

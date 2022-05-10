@@ -2,11 +2,9 @@
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-
-    public void PartOne()
+    public void PartOne(string path)
     {
-        string input = File.ReadAllText(Path);
+        string input = File.ReadAllText(path);
         string prefix = "00000";
 
         int solution = Enumerable.Range(1, int.MaxValue).First(x => CreateMD5(input + x).StartsWith(prefix));
@@ -14,9 +12,9 @@ internal sealed class Solver : ISolver
         Console.WriteLine($"Part One: {solution}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        string input = File.ReadAllText(Path);
+        string input = File.ReadAllText(path);
         string prefix = "000000";
 
         int solution = Enumerable.Range(1, int.MaxValue).First(x => CreateMD5(input + x).StartsWith(prefix));

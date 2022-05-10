@@ -2,11 +2,9 @@
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-
-    public void PartOne()
+    public void PartOne(string path)
     {
-        string input = File.ReadAllText(Path);
+        string input = File.ReadAllText(path);
         string[] wireOneCommands = input.Split("\n")[0].Split(",");
         string[] wireTwoCommands = input.Split("\n")[1].Split(",");
 
@@ -34,8 +32,8 @@ internal sealed class Solver : ISolver
         Console.WriteLine($"Part One: {closest}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        
+        Console.WriteLine("No part two yet");
     }
 }

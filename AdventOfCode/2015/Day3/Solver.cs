@@ -2,11 +2,9 @@
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-
-    public void PartOne()
+    public void PartOne(string path)
     {
-        string moves = File.ReadAllText(Path);
+        string moves = File.ReadAllText(path);
 
         HashSet<Tuple<int, int>> houses = Deliver(moves);
         int solution = houses.Count();
@@ -14,9 +12,9 @@ internal sealed class Solver : ISolver
         Console.WriteLine($"Part One: {solution}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        string moves = File.ReadAllText(Path);
+        string moves = File.ReadAllText(path);
 
         var santaMoves = moves.Where((move, ind) => ind % 2 == 0);
         var roboSantaMoves = moves.Where((move, ind) => ind % 2 != 0);

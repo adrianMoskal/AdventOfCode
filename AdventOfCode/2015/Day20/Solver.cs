@@ -2,20 +2,18 @@
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-
-    public void PartOne()
+    public void PartOne(string path)
     {
-        int input = int.Parse(File.ReadAllText(Path));
+        int input = int.Parse(File.ReadAllText(path));
 
         int solution = HousePresents(10).First(x => x.Item2 >= input).Item1;
 
         Console.WriteLine($"Part One: {solution}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        int input = int.Parse(File.ReadAllText(Path));
+        int input = int.Parse(File.ReadAllText(path));
 
         int solution = HousePresents(11, true).First(x => x.Item2 >= input).Item1;
 

@@ -2,8 +2,6 @@
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-
     private Aunt pattern = new Aunt(-1)
     {
         Children = 3,
@@ -18,9 +16,9 @@ internal sealed class Solver : ISolver
         Perfumes = 1
     };
 
-    public void PartOne()
+    public void PartOne(string path)
     {
-        string[] lines = File.ReadAllLines(Path);
+        string[] lines = File.ReadAllLines(path);
         List<Aunt> aunts = Parse(lines);
 
         int solution = aunts.Single(a => pattern.Equals(a)).Number;
@@ -28,9 +26,9 @@ internal sealed class Solver : ISolver
         Console.WriteLine($"Part One: {solution}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        string[] lines = File.ReadAllLines(Path);
+        string[] lines = File.ReadAllLines(path);
         List<Aunt> aunts = Parse(lines);
 
         int solution = aunts.Single(a => pattern.EqualsPartTwo(a)).Number;

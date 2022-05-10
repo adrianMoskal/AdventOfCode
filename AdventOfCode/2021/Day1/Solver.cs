@@ -2,11 +2,9 @@
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-
-    public void PartOne()
+    public void PartOne(string path)
     {
-        string[] lines = File.ReadAllLines(Path);
+        string[] lines = File.ReadAllLines(path);
         var measurements = lines.Select(Int32.Parse);
 
         int solution = Enumerable.Range(1, lines.Length - 1)
@@ -15,9 +13,9 @@ internal sealed class Solver : ISolver
         Console.WriteLine($"Part One: {solution}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        string[] lines = File.ReadAllLines(Path);
+        string[] lines = File.ReadAllLines(path);
         var measurements = lines.Select(Int32.Parse);
 
         var windowSums = Enumerable.Range(0, lines.Length - 2)

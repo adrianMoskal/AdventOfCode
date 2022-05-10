@@ -2,11 +2,9 @@
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-
-    public void PartOne()
+    public void PartOne(string path)
     {
-        string[] lines = File.ReadAllLines(Path);
+        string[] lines = File.ReadAllLines(path);
         int[] containers = lines.Select(Int32.Parse).ToArray();
 
         int solution = Combinations(containers).Where(x => x.Sum() == 150).Count();
@@ -14,9 +12,9 @@ internal sealed class Solver : ISolver
         Console.WriteLine($"Part One: {solution}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        string[] lines = File.ReadAllLines(Path);
+        string[] lines = File.ReadAllLines(path);
         int[] containers = lines.Select(Int32.Parse).ToArray();
 
         int min = Combinations(containers).Where(x => x.Sum() == 150).Min(c => c.Length);

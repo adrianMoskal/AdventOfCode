@@ -2,10 +2,9 @@
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-    public void PartOne()
+    public void PartOne(string path)
     {
-        string[] lines = File.ReadAllLines(Path);
+        string[] lines = File.ReadAllLines(path);
 
         var state = Dive(lines, false).Last();
         int solution = state[0] * state[1];
@@ -13,9 +12,9 @@ internal sealed class Solver : ISolver
         Console.WriteLine($"Part One: {solution}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        string[] lines = File.ReadAllLines(Path);
+        string[] lines = File.ReadAllLines(path);
 
         var state = Dive(lines, true).Last();
         int solution = state[0] * state[1];

@@ -2,11 +2,9 @@
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-
-    public void PartOne()
+    public void PartOne(string path)
     {
-        var bytes = File.ReadAllLines(Path).ToList();
+        var bytes = File.ReadAllLines(path).ToList();
         
         var gammaRateBinary = string.Join("", Enumerable.Range(0, bytes[0].Length).Select(x => MostCommonBit(bytes, x)));
         var epsilonRateBinary = string.Join("", gammaRateBinary.Select(b => b == '0' ? '1' : '0'));
@@ -19,9 +17,9 @@ internal sealed class Solver : ISolver
         Console.WriteLine($"Part One: {solution}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        string[] bytes = File.ReadAllLines(Path);
+        string[] bytes = File.ReadAllLines(path);
 
         int i = 0;
         var bytesForOxygen = new List<string>(bytes);

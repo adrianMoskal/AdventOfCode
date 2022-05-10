@@ -2,11 +2,9 @@
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-
-    public void PartOne()
+    public void PartOne(string path)
     {
-        string[] lines = File.ReadAllLines(Path);
+        string[] lines = File.ReadAllLines(path);
 
         var triangles = lines.Select(l => Regex.Matches(l, @"\d+").Select(x => int.Parse(x.Value)));
 
@@ -15,7 +13,7 @@ internal sealed class Solver : ISolver
         Console.WriteLine($"Part One: {solution}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
         Console.WriteLine($"No Part Two yet");
     }

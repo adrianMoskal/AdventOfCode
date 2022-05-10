@@ -31,3 +31,4 @@ internal enum AdventOfCodeErrorType
     YearArgumentError,
     DayArgumentError,
     DayNumberError
+}

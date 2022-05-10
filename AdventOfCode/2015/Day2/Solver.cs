@@ -2,19 +2,17 @@
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-
-    public void PartOne()
+    public void PartOne(string path)
     {
-        string[] lines = File.ReadAllLines(Path);
+        string[] lines = File.ReadAllLines(path);
         var sum = Prepare(lines).Select(x => Area(x) + Sides(x).Min()).Sum();
 
         Console.WriteLine($"Part One: {sum}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        string[] lines = File.ReadAllLines(Path);
+        string[] lines = File.ReadAllLines(path);
         var sum = Prepare(lines).Select(x => Volume(x) + Perimeters(x).Min()).Sum();
 
         Console.WriteLine($"Part Two: {sum}");

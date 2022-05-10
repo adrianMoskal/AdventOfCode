@@ -19,8 +19,10 @@ internal sealed class Aunt : IEquatable<Aunt>
         Number = number;
     }
 
-    public bool Equals(Aunt other)
+    public bool Equals(Aunt? other)
     {
+        if (other is null)
+            return false;
         if (other.Children.HasValue && Children != other.Children)
             return false;
         if (other.Cats.HasValue && Cats != other.Cats)

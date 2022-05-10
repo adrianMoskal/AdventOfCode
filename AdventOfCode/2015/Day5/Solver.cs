@@ -2,11 +2,9 @@
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-
-    public void PartOne()
+    public void PartOne(string path)
     {
-        string[] words = File.ReadAllLines(Path);
+        string[] words = File.ReadAllLines(path);
         string[] forbiddens = { "ab", "cd", "pq", "xy" };
         string vowels = "aeiou";
 
@@ -19,7 +17,7 @@ internal sealed class Solver : ISolver
         Console.WriteLine($"Part One: {solution}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
         Console.WriteLine($"No Part Two yet");
     }

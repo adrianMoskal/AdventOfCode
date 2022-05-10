@@ -2,20 +2,18 @@
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-
-    public void PartOne()
+    public void PartOne(string path)
     {
-        string input = File.ReadAllText(Path);
+        string input = File.ReadAllText(path);
 
         int solution = LookAndSayNumbers(input).ElementAt(39).Length;
 
         Console.WriteLine($"Part One: {solution} ");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        string input = File.ReadAllText(Path);
+        string input = File.ReadAllText(path);
 
         int solution = LookAndSayNumbers(input).ElementAt(49).Length;
 

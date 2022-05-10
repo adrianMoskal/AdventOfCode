@@ -2,11 +2,9 @@
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-
-    public void PartOne()
+    public void PartOne(string path)
     {
-        string input = File.ReadAllText(Path);
+        string input = File.ReadAllText(path);
         int[] numbersInput = input.Split(",").Select(Int32.Parse).ToArray();
         int? solution = null;
 
@@ -29,9 +27,9 @@ internal sealed class Solver : ISolver
         }
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        string input = File.ReadAllText(Path);
+        string input = File.ReadAllText(path);
         int[] numbersInput = input.Split(",").Select(Int32.Parse).ToArray();
 
         IntcodeComputer computer = new IntcodeComputer(numbersInput);

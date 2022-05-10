@@ -2,11 +2,9 @@
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-
-    public void PartOne()
+    public void PartOne(string path)
     {
-        var positions = File.ReadAllText(Path)
+        var positions = File.ReadAllText(path)
             .Split(',')
             .Select(int.Parse);
 
@@ -15,9 +13,9 @@ internal sealed class Solver : ISolver
         Console.WriteLine($"Part One: {solution}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        var positions = File.ReadAllText(Path)
+        var positions = File.ReadAllText(path)
             .Split(',')
             .Select(int.Parse);
 

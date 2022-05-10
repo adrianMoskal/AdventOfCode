@@ -2,10 +2,9 @@
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-    public void PartOne()
+    public void PartOne(string path)
     {
-        var numbers = File.ReadAllLines(Path).Select(Int32.Parse);
+        var numbers = File.ReadAllLines(path).Select(Int32.Parse);
 
         int solution = numbers.DifferentCombinations(2)
             .First(c => c.Sum() == 2020)
@@ -14,9 +13,9 @@ internal sealed class Solver : ISolver
         Console.WriteLine($"Part One: {solution}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        var numbers = File.ReadAllLines(Path).Select(Int32.Parse);
+        var numbers = File.ReadAllLines(path).Select(Int32.Parse);
 
         int solution = numbers.DifferentCombinations(3)
             .First(c => c.Sum() == 2020)

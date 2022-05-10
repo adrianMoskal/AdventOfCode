@@ -2,7 +2,6 @@
 
 internal interface ISolver
 {
-    string? Path { get; set; }
-    void PartOne();
-    void PartTwo();
+    void PartOne(string path);
+    void PartTwo(string path);
 }

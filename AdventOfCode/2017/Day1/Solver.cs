@@ -2,11 +2,9 @@ namespace AdventOfCode._2017.Day1;
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-
-    public void PartOne()
+    public void PartOne(string path)
     {
-        string input = File.ReadAllText(Path);
+        string input = File.ReadAllText(path);
 
         var solution = Enumerable.Range(0, input.Length)
                 .Where(x => input[x] == input[(x+1) % input.Length])
@@ -16,9 +14,9 @@ internal sealed class Solver : ISolver
         Console.WriteLine($"Part One: {solution}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        string input = File.ReadAllText(Path);
+        string input = File.ReadAllText(path);
 
         var solution = Enumerable.Range(0, input.Length)
                 .Where(x => input[x] == input[(x + input.Length / 2) % input.Length])

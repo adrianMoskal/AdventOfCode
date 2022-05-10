@@ -22,11 +22,11 @@ internal static class AppRunner
             ISolver? solver = (ISolver?)o
                 ?? throw new AdventOfCodeException(AdventOfCodeErrorType.InterfaceMatchError);
 
-            solver.Path = string.Format("{0}{1}{2}{1}puzzleInput.txt", Environment.CurrentDirectory,
+            string? path = string.Format("{0}{1}{2}{1}puzzleInput.txt", Environment.CurrentDirectory,
                 Path.DirectorySeparatorChar, string.Join(Path.DirectorySeparatorChar, args));
 
-            solver.PartOne();
-            solver.PartTwo();
+            solver.PartOne(path);
+            solver.PartTwo(path);
         }
 
         catch (ArgumentNullException)

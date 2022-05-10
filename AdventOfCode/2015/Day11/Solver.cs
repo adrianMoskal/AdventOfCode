@@ -2,20 +2,18 @@
 
 internal sealed class Solver : ISolver
 {
-    public string Path { get; set; }
-
-    public void PartOne()
+    public void PartOne(string path)
     {
-        string password = File.ReadAllText(Path);
+        string password = File.ReadAllText(path);
 
         password = PasswordChanger(password).ElementAt(0);
 
         Console.WriteLine($"Part One: {password}");
     }
 
-    public void PartTwo()
+    public void PartTwo(string path)
     {
-        string password = File.ReadAllText(Path);
+        string password = File.ReadAllText(path);
 
         password = PasswordChanger(password).ElementAt(1);
 
