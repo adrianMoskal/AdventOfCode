@@ -1,6 +1,6 @@
 ﻿namespace AdventOfCode._2015.Day14;
 
-class Reindeer
+internal sealed class Reindeer
 {
     public string Name { get; set; }
     public int Speed { get; set; }

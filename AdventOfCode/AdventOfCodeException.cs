@@ -1,31 +1,32 @@
 ﻿namespace AdventOfCode;
 
-public class AdventOfCodeException : Exception
+internal class AdventOfCodeException : Exception
 {
-    public AdventOfCodeException(AdventOfCodeError error) : base(CreateMessage(error))
-    {
-    }
+    public AdventOfCodeException(AdventOfCodeErrorType error) 
+        : base(CreateMessage(error)) { }
 
-    private static string CreateMessage(AdventOfCodeError error)
+    private static string CreateMessage(AdventOfCodeErrorType error) => error switch
     {
-        switch(error)
-        {
-            case AdventOfCodeError.ArgumentsError:
-                return "Wrong format!\ndotnet run <year> Day<number>";
-            case AdventOfCodeError.YearArgumentError:
-                return "Year has to be number between 2015-2021";
-            case AdventOfCodeError.DayArgumentError:
-                return "Second argument has to be 'Day<number>' (capitalized day)";
-            case AdventOfCodeError.DayNumberError:
-                return "Day<number>: number has to be number between 1 - 25";
-            default:
-                return "Something went wrong";
-        }
-    }
+            AdventOfCodeErrorType.GetTypeError
+                => "Cannot get type from provided input",
+            AdventOfCodeErrorType.InterfaceMatchError
+                => "Object created from input cannot implement ISolver interface",
+            AdventOfCodeErrorType.ArgumentsError
+                => "Wrong format!\ndotnet run <year> Day<number>",
+            AdventOfCodeErrorType.YearArgumentError
+                => "Year has to be number between 2015-2021",
+            AdventOfCodeErrorType.DayArgumentError
+                => "Second argument has to be 'Day<number>' (capitalized day)",
+            AdventOfCodeErrorType.DayNumberError
+                => "Day<number>: number has to be number between 1 - 25",
+            _ => "Something went wrong"
+    };
 }
 
-public enum AdventOfCodeError
+internal enum AdventOfCodeErrorType
 {
+    GetTypeError,
+    InterfaceMatchError,
     ArgumentsError,
     YearArgumentError,
     DayArgumentError,

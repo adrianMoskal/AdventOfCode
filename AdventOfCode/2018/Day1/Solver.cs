@@ -1,6 +1,6 @@
 ﻿namespace AdventOfCode._2018.Day1;
 
-class Solver : ISolver
+internal sealed class Solver : ISolver
 {
     public string Path { get; set; }
 

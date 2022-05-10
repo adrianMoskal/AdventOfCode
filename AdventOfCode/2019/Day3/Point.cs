@@ -1,6 +1,6 @@
 ﻿namespace AdventOfCode._2019.Day3;
 
-class Point : IEquatable<Point>
+internal sealed class Point : IEquatable<Point>
 {
     public int X { get; set; }
     public int Y { get; set; }

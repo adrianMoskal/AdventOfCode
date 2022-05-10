@@ -1,6 +1,6 @@
 ﻿namespace AdventOfCode._2019.Day2;
 
-class IntcodeComputer
+internal sealed class IntcodeComputer
 {
     private int[] _memory;
     private int[] _backupMemory;

@@ -1,6 +1,6 @@
 ﻿namespace AdventOfCode._2015.Day16;
 
-class Aunt : IEquatable<Aunt>
+internal sealed class Aunt : IEquatable<Aunt>
 {
     public int Number { get; set; }
     public int? Children { get; set; }

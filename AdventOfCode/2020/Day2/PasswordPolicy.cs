@@ -1,6 +1,6 @@
 namespace AdventOfCode._2020.Day2;
 
-class PasswordPolicy
+internal sealed class PasswordPolicy
 {
     public int Min { get;set; }
     public int Max { get;set; }

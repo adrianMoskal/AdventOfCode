@@ -1,6 +1,6 @@
 ﻿namespace AdventOfCode;
 
-public static class Validator
+internal static class Validator
 {
     public static void Validate(string[] args)
     {
@@ -12,9 +12,7 @@ public static class Validator
     private static void ValidateArgumentsLength(string[] args)
     {
         if (args.Length != 2)
-        {
-            throw new AdventOfCodeException(AdventOfCodeError.ArgumentsError);
-        }
+            throw new AdventOfCodeException(AdventOfCodeErrorType.ArgumentsError);
     }
 
     private static void ValidateYear(string yearArg)
@@ -23,21 +21,15 @@ public static class Validator
         bool successfullyParsed = int.TryParse(yearArg, out year);
 
         if (successfullyParsed)
-        {
             ValidateYearRange(year);
-        }
         else
-        {
-            throw new AdventOfCodeException(AdventOfCodeError.YearArgumentError);
-        }
+            throw new AdventOfCodeException(AdventOfCodeErrorType.YearArgumentError);
     }
 
     private static void ValidateYearRange(int year)
     {
         if (2015 > year || year > 2021)
-        {
-            throw new AdventOfCodeException(AdventOfCodeError.YearArgumentError);
-        }
+            throw new AdventOfCodeException(AdventOfCodeErrorType.YearArgumentError);
     }
 
     private static void ValidateDay(string dayArg)
@@ -49,9 +41,7 @@ public static class Validator
     private static void ValidateDayIsCapitalized(string dayArg)
     {
         if (!dayArg.StartsWith("Day"))
-        {
-            throw new AdventOfCodeException(AdventOfCodeError.DayArgumentError);
-        }
+            throw new AdventOfCodeException(AdventOfCodeErrorType.DayArgumentError);
     }
 
     private static void ValidateDayIsNumber(string dayArg)
@@ -60,20 +50,14 @@ public static class Validator
         bool successfullyParsed = int.TryParse(dayArg.Substring(3), out day);
 
         if (successfullyParsed)
-        {
             ValidateDayRange(day);
-        }
         else
-        {
-            throw new AdventOfCodeException(AdventOfCodeError.DayNumberError);
-        }
+            throw new AdventOfCodeException(AdventOfCodeErrorType.DayNumberError);
     }
 
     private static void ValidateDayRange(int day)
     {
         if (1 > day || day > 25)
-        {
-            throw new AdventOfCodeException(AdventOfCodeError.DayNumberError);
-        }
+            throw new AdventOfCodeException(AdventOfCodeErrorType.DayNumberError);
     }
 }

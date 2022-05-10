@@ -1,6 +1,6 @@
 ﻿namespace AdventOfCode._2019.Day3;
 
-class PointComparer : IEqualityComparer<Point>
+internal sealed class PointComparer : IEqualityComparer<Point>
 {
     public bool Equals(Point item1, Point item2)
     {
