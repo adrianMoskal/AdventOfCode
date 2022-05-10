@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace AdventOfCode;
 
-namespace AdventOfCode
+public interface ISolver
 {
-    public interface ISolver
-    {
-        void PartOne();
-        void PartTwo();
-    }
+    void PartOne();
+    void PartTwo();
 }

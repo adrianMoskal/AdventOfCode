@@ -1,38 +1,30 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+namespace AdventOfCode._2017.Day1;
 
-namespace AdventOfCode._2017.Day1
+class Solver : ISolver
 {
-    class Solver : ISolver
+    public string Path { get; set; }
+
+    public void PartOne()
     {
-        public string Path { get; set; }
+        string input = File.ReadAllText(Path);
 
-        public void PartOne()
-        {
-            string input = File.ReadAllText(Path);
+        var solution = Enumerable.Range(0, input.Length)
+                .Where(x => input[x] == input[(x+1) % input.Length])
+                .Select(x => int.Parse(input[x].ToString()))
+                .Sum();
 
-            var solution = Enumerable.Range(0, input.Length)
-                    .Where(x => input[x] == input[(x+1) % input.Length])
-                    .Select(x => int.Parse(input[x].ToString()))
-                    .Sum();
+        Console.WriteLine($"Part One: {solution}");
+    }
 
-            Console.WriteLine($"Part One: {solution}");
-        }
+    public void PartTwo()
+    {
+        string input = File.ReadAllText(Path);
 
-        public void PartTwo()
-        {
-            string input = File.ReadAllText(Path);
+        var solution = Enumerable.Range(0, input.Length)
+                .Where(x => input[x] == input[(x + input.Length / 2) % input.Length])
+                .Select(x => int.Parse(input[x].ToString()))
+                .Sum();
 
-            var solution = Enumerable.Range(0, input.Length)
-                    .Where(x => input[x] == input[(x + input.Length / 2) % input.Length])
-                    .Select(x => int.Parse(input[x].ToString()))
-                    .Sum();
-
-            Console.WriteLine($"Part Two: {solution}");
-        }
+        Console.WriteLine($"Part Two: {solution}");
     }
 }

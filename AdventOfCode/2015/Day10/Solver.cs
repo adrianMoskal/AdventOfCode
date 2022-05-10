@@ -1,61 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace AdventOfCode._2015.Day10;
 
-namespace AdventOfCode._2015.Day10
+class Solver : ISolver
 {
-    class Solver : ISolver
+    public string Path { get; set; }
+
+    public void PartOne()
     {
-        public string Path { get; set; }
+        string input = File.ReadAllText(Path);
 
-        public void PartOne()
+        int solution = LookAndSayNumbers(input).ElementAt(39).Length;
+
+        Console.WriteLine($"Part One: {solution} ");
+    }
+
+    public void PartTwo()
+    {
+        string input = File.ReadAllText(Path);
+
+        int solution = LookAndSayNumbers(input).ElementAt(49).Length;
+
+        Console.WriteLine($"Part Two: {solution} ");
+    }
+
+    IEnumerable<string> LookAndSayNumbers(string number)
+    {
+        for(int i = 0; i < int.MaxValue; i++)
         {
-            string input = File.ReadAllText(Path);
-
-            int solution = LookAndSayNumbers(input).ElementAt(39).Length;
-
-            Console.WriteLine($"Part One: {solution} ");
+            number = LookAndSay(number);
+            yield return number;
         }
+    }
 
-        public void PartTwo()
+
+    private string LookAndSay(string input)
+    {
+        StringBuilder output = new StringBuilder();
+        int i = 0;
+        while (i < input.Length)
         {
-            string input = File.ReadAllText(Path);
-
-            int solution = LookAndSayNumbers(input).ElementAt(49).Length;
-
-            Console.WriteLine($"Part Two: {solution} ");
-        }
-
-        IEnumerable<string> LookAndSayNumbers(string number)
-        {
-            for(int i = 0; i < int.MaxValue; i++)
+            int count = 1;
+            while ((i + 1 < input.Length) && (input[i] == input[i + 1]))
             {
-                number = LookAndSay(number);
-                yield return number;
-            }
-        }
-
-
-        private string LookAndSay(string input)
-        {
-            StringBuilder output = new StringBuilder();
-            int i = 0;
-            while (i < input.Length)
-            {
-                int count = 1;
-                while ((i + 1 < input.Length) && (input[i] == input[i + 1]))
-                {
-                    count++;
-                    i++;
-                }
-
-                output.Append(count.ToString() + input[i]);
+                count++;
                 i++;
             }
-            return output.ToString();
+
+            output.Append(count.ToString() + input[i]);
+            i++;
         }
+        return output.ToString();
     }
 }

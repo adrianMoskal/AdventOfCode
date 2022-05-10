@@ -1,53 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace AdventOfCode._2015.Day14;
 
-namespace AdventOfCode._2015.Day14
+class Reindeer
 {
-    class Reindeer
+    public string Name { get; set; }
+    public int Speed { get; set; }
+    public int FlyTime { get; set; }
+    public int TimeSpentFlying { get; set; }
+    public int RestTime { get; set; }
+    public int TimeSpentResting { get; set; }
+    public bool IsFlying { get; set; }
+    public int Distance { get; set; }
+    public int Points { get; set; }
+
+    public Reindeer(string name, int speed, int flyTime, int restTime, bool isFlying)
     {
-        public string Name { get; set; }
-        public int Speed { get; set; }
-        public int FlyTime { get; set; }
-        public int TimeSpentFlying { get; set; }
-        public int RestTime { get; set; }
-        public int TimeSpentResting { get; set; }
-        public bool IsFlying { get; set; }
-        public int Distance { get; set; }
-        public int Points { get; set; }
+        Name = name;
+        Speed = speed;
+        FlyTime = flyTime;
+        RestTime = restTime;
+        IsFlying = isFlying;
+        Points = TimeSpentFlying = TimeSpentResting = Distance = 0;
+    }
 
-        public Reindeer(string name, int speed, int flyTime, int restTime, bool isFlying)
+    public void Step()
+    {
+        if(IsFlying)
         {
-            Name = name;
-            Speed = speed;
-            FlyTime = flyTime;
-            RestTime = restTime;
-            IsFlying = isFlying;
-            Points = TimeSpentFlying = TimeSpentResting = Distance = 0;
-        }
-
-        public void Step()
-        {
-            if(IsFlying)
+            Distance += Speed;
+            TimeSpentFlying++;
+            if(TimeSpentFlying >= FlyTime)
             {
-                Distance += Speed;
-                TimeSpentFlying++;
-                if(TimeSpentFlying >= FlyTime)
-                {
-                    TimeSpentFlying = 0;
-                    IsFlying = false;
-                }
+                TimeSpentFlying = 0;
+                IsFlying = false;
             }
-            else
+        }
+        else
+        {
+            TimeSpentResting++;
+            if (TimeSpentResting >= RestTime)
             {
-                TimeSpentResting++;
-                if (TimeSpentResting >= RestTime)
-                {
-                    TimeSpentResting = 0;
-                    IsFlying = true;
-                }
+                TimeSpentResting = 0;
+                IsFlying = true;
             }
         }
     }

@@ -1,51 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace AdventOfCode._2018.Day1;
 
-namespace AdventOfCode._2018.Day1
+class Solver : ISolver
 {
-    class Solver : ISolver
+    public string Path { get; set; }
+
+    public void PartOne()
     {
-        public string Path { get; set; }
+        string[] lines = File.ReadAllLines(Path);
 
-        public void PartOne()
+        int solution = 0;
+        foreach(var change in lines.Select(Int32.Parse))
         {
-            string[] lines = File.ReadAllLines(Path);
+            solution += change;
+        }
 
-            int solution = 0;
-            foreach(var change in lines.Select(Int32.Parse))
+        Console.WriteLine($"Part One: {solution}");
+    }
+
+    public void PartTwo()
+    {
+        string[] lines = File.ReadAllLines(Path);
+
+        int solution = 0;
+        bool repeat = true;
+        var history = new List<int>(0);
+        while(repeat)
+        {
+            foreach (var change in lines.Select(Int32.Parse))
             {
                 solution += change;
-            }
-
-            Console.WriteLine($"Part One: {solution}");
-        }
-
-        public void PartTwo()
-        {
-            string[] lines = File.ReadAllLines(Path);
-
-            int solution = 0;
-            bool repeat = true;
-            var history = new List<int>(0);
-            while(repeat)
-            {
-                foreach (var change in lines.Select(Int32.Parse))
+                if (history.Contains(solution))
                 {
-                    solution += change;
-                    if (history.Contains(solution))
-                    {
-                        repeat = false;
-                        break;
-                    }
-                    history.Add(solution);
+                    repeat = false;
+                    break;
                 }
+                history.Add(solution);
             }
-
-            Console.WriteLine($"Part Two: {solution}");
         }
+
+        Console.WriteLine($"Part Two: {solution}");
     }
 }

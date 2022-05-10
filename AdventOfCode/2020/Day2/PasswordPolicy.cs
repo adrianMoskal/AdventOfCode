@@ -1,53 +1,45 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+namespace AdventOfCode._2020.Day2;
 
-namespace AdventOfCode._2020.Day2
+class PasswordPolicy
 {
-    class PasswordPolicy
+    public int Min { get;set; }
+    public int Max { get;set; }
+
+    public char Letter { get;set; }
+
+    public string Password { get;set; }
+
+    public PasswordPolicy(string passwordPolicy)
     {
-        public int Min { get;set; }
-        public int Max { get;set; }
+        passwordPolicy = passwordPolicy.Replace(":", "");
+        string[] policies = passwordPolicy.Split(" ");
+        var range = policies[0].Split("-").Select(Int32.Parse);
+        
+        Min = range.ElementAt(0);
+        Max = range.ElementAt(1);
+        Letter = Convert.ToChar(policies[1]);
+        Password = policies[2];
+    }
 
-        public char Letter { get;set; }
-
-        public string Password { get;set; }
-
-        public PasswordPolicy(string passwordPolicy)
+    public bool OldValidation()
+    {
+        int count = Password.Count(x => x.Equals(Letter));
+        if(Min <= count && count <= Max)
         {
-            passwordPolicy = passwordPolicy.Replace(":", "");
-            string[] policies = passwordPolicy.Split(" ");
-            var range = policies[0].Split("-").Select(Int32.Parse);
-            
-            Min = range.ElementAt(0);
-            Max = range.ElementAt(1);
-            Letter = Convert.ToChar(policies[1]);
-            Password = policies[2];
+            return true;
         }
+        return false;
+    }
 
-        public bool OldValidation()
+    public bool NewValidation()
+    {
+        bool x = Password[Min-1].Equals(Letter);
+        bool y = Password[Max-1].Equals(Letter);
+
+        if(x != y)
         {
-            int count = Password.Count(x => x.Equals(Letter));
-            if(Min <= count && count <= Max)
-            {
-                return true;
-            }
-            return false;
+            return true;
         }
-
-        public bool NewValidation()
-        {
-            bool x = Password[Min-1].Equals(Letter);
-            bool y = Password[Max-1].Equals(Letter);
-
-            if(x != y)
-            {
-                return true;
-            }
-            return false;
-        }
+        return false;
     }
 }
