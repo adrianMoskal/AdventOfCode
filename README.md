@@ -50,20 +50,34 @@ I made this project with the aim of **problem solving** and **LINQ** practice. T
 
 ## Getting Started
 
-1. Install .NET
+1. Install .NET <br /><br />
 2. Clone the repo (or download in zip)
    ```sh
    git clone https://github.com/adrianMoskal/AdventOfCode.git
    ```
-3. Navigate to AdventOfCode folder with source code and **change puzzleInput.txt** files content to your puzzle input.
-4. Use this command to run explicit solution:
-  ```sh
-  dotnet run <year> day<number>
-  ```
-e.g.:
-```sh
-  dotnet run 2015 day1
-  ```
+   <br />
+3. Navigate to AdventOfCode folder with source code and **change puzzleInput.txt** files content to your puzzle input. <br /><br />
+5. Launch <br /><br />
+    * **Command line** <br />
+      Use this command to run explicit solution: <br />
+      ```sh
+      dotnet run <year> day<number>
+      ```
+      e.g.:
+      ```sh
+      dotnet run 2015 day1
+      ```
+      <br /><br />
+    * **Visual Studio** <br />
+      Right click on project and go to **Debug** section in **project properties**. Setup command line arguments:
+       ```sh
+      <year> day<number>
+      ```
+      e.g.:
+      ```sh
+      2015 day1
+      ```
+      Run project
 <br /><br />
 
 

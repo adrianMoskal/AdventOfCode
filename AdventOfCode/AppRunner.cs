@@ -18,7 +18,11 @@ internal static class AppRunner
             ISolver? solver = (ISolver?)o
                 ?? throw new AdventOfCodeException(AdventOfCodeErrorType.InterfaceMatchError);
 
-            string? path = string.Format("{0}{1}{2}{1}puzzleInput.txt", Environment.CurrentDirectory,
+            string currentDir = Environment.CurrentDirectory.Contains("Debug")
+                ? string.Format("..{0}..{0}..{0}", Path.DirectorySeparatorChar, Environment.CurrentDirectory)
+                : Environment.CurrentDirectory;
+
+            string? path = string.Format("{0}{1}{2}{1}puzzleInput.txt", currentDir,
                 Path.DirectorySeparatorChar, string.Join(Path.DirectorySeparatorChar, args));
 
             solver.PartOne(path);
