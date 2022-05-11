@@ -36,20 +36,22 @@
 
 ## About The Project
 
-This is console application with my solutions of AdventOfCode quizes. In this moment I didn't solve every problem but there will be all solutions in the future.
+This is **console application** with my solutions of Advent of Code quizes. In this moment I didn't solve every problem but there will be all solutions in the future.
+<br /><br />
+I made this project with the aim of **problem solving** and **LINQ** practice. That's why most of solutions are made in LINQ (if there is a possibility to keep solution clean and readable at decent level)
 <br /><br />
 
 
 ### Built With
 
-* [C# (.NET 5)](https://docs.microsoft.com/pl-pl/dotnet/csharp/)
+* [C# 10 (.NET 6)](https://docs.microsoft.com/pl-pl/dotnet/csharp/)
 <br /><br />
 
 
 ## Getting Started
 
 1. Install .NET
-2. Clone the repo
+2. Clone the repo (or download in zip)
    ```sh
    git clone https://github.com/adrianMoskal/AdventOfCode.git
    ```
