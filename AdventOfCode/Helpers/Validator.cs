@@ -33,13 +33,13 @@ internal static class Validator
 
     private static void ValidateDay(string dayArg)
     {
-        ValidateDayIsCapitalized(dayArg);
+        ValidateDayContent(dayArg);
         ValidateDayIsNumber(dayArg);
     }
 
-    private static void ValidateDayIsCapitalized(string dayArg)
+    private static void ValidateDayContent(string dayArg)
     {
-        if (!dayArg.StartsWith("Day"))
+        if (!dayArg.ToLower().StartsWith("day"))
             throw new AdventOfCodeException(AdventOfCodeErrorType.DayArgumentError);
     }
 

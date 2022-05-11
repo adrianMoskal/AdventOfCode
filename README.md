@@ -58,11 +58,11 @@ I made this project with the aim of **problem solving** and **LINQ** practice. T
 3. Navigate to AdventOfCode folder with source code and **change puzzleInput.txt** files content to your puzzle input.
 4. Use this command to run explicit solution:
   ```sh
-  dotnet run <year> Day<number>
+  dotnet run <year> day<number>
   ```
 e.g.:
 ```sh
-  dotnet run 2015 Day1
+  dotnet run 2015 day1
   ```
 <br /><br />
 

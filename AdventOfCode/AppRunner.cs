@@ -8,13 +8,9 @@ internal static class AppRunner
         {
             Validator.Validate(args);
 
-            StringBuilder inputString = new StringBuilder("AdventOfCode._");
-            foreach (var arg in args)
-                inputString.Append(arg + ".");
+            string argsInput = string.Format("AdventOfCode._{0}.{1}.Solver", args[0], args[1].Capitalize());
 
-            inputString.Append("Solver");
-
-            Type? type = Type.GetType(inputString.ToString())
+            Type? type = Type.GetType(argsInput)
                 ?? throw new AdventOfCodeException(AdventOfCodeErrorType.GetTypeError);
 
             dynamic? o = Activator.CreateInstance(type);
@@ -28,7 +24,6 @@ internal static class AppRunner
             solver.PartOne(path);
             solver.PartTwo(path);
         }
-
         catch (ArgumentNullException)
         {
             Console.WriteLine("There is no solution for this quiz yet :c");

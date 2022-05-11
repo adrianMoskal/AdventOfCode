@@ -12,13 +12,13 @@ internal sealed class AdventOfCodeException : Exception
         AdventOfCodeErrorType.InterfaceMatchError
             => "Object created from input cannot implement ISolver interface",
         AdventOfCodeErrorType.ArgumentsError
-            => "Wrong format!\ndotnet run <year> Day<number>",
+            => "Wrong format!\ndotnet run <year> day<number>",
         AdventOfCodeErrorType.YearArgumentError
             => "Year has to be number between 2015-2021",
         AdventOfCodeErrorType.DayArgumentError
-            => "Second argument has to be 'Day<number>' (capitalized day)",
+            => "Second argument has to be 'day<number>' or 'Day<number>'",
         AdventOfCodeErrorType.DayNumberError
-            => "Day<number>: number has to be number between 1 - 25",
+            => "day<number>: number has to be number between 1 - 25",
         _ => "Something went wrong"
     };
 }
