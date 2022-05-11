@@ -1,7 +1,8 @@
 {
   "profiles": {
     "AdventOfCode": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "2020 day4"
     }
   }
 }
