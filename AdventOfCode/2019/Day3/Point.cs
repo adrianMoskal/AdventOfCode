@@ -87,7 +87,7 @@ internal sealed class Point : IEquatable<Point>
         {
             char direction = command[0];
             int value = int.Parse(command.Substring(1));
-            List<Point> points = null;
+            List<Point>? points = null;
 
             switch (direction)
             {
@@ -117,15 +117,13 @@ internal sealed class Point : IEquatable<Point>
         return path;
     }
 
-    public bool Equals(Point other)
+    public bool Equals(Point? other)
     {
-        if (this.X == other.X && this.Y == other.Y)
-        {
-            return true;
-        }
-        else
-        {
+        if (other is null)
             return false;
-        }
+        else if (this.X == other.X && this.Y == other.Y)
+            return true;
+        else
+            return false;
     }
 }

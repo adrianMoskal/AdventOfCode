@@ -1,6 +1,6 @@
 ﻿namespace AdventOfCode.Helpers;
 
-internal class AdventOfCodeException : Exception
+internal sealed class AdventOfCodeException : Exception
 {
     public AdventOfCodeException(AdventOfCodeErrorType error)
         : base(CreateMessage(error)) { }

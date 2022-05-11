@@ -17,8 +17,7 @@ internal static class Validator
 
     private static void ValidateYear(string yearArg)
     {
-        int year;
-        bool successfullyParsed = int.TryParse(yearArg, out year);
+        bool successfullyParsed = int.TryParse(yearArg, out int year);
 
         if (successfullyParsed)
             ValidateYearRange(year);
@@ -46,8 +45,7 @@ internal static class Validator
 
     private static void ValidateDayIsNumber(string dayArg)
     {
-        int day;
-        bool successfullyParsed = int.TryParse(dayArg.Substring(3), out day);
+        bool successfullyParsed = int.TryParse(dayArg.Substring(3), out int day);
 
         if (successfullyParsed)
             ValidateDayRange(day);

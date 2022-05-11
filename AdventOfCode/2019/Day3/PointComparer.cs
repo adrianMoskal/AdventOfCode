@@ -2,8 +2,11 @@
 
 internal sealed class PointComparer : IEqualityComparer<Point>
 {
-    public bool Equals(Point item1, Point item2)
+    public bool Equals(Point? item1, Point? item2)
     {
+        if (item1 is null || item2 is null)
+            return false;
+
         return item1.Equals(item2);
     }
 
