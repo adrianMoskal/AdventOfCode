@@ -7,27 +7,44 @@ internal sealed class Solver : ISolver
         string input = File.ReadAllText(path);
 
         int i = 0;
-        var solution = new StringBuilder();
+        var password = new StringBuilder();
 
-        while (solution.Length < 8)
+        while (password.Length < 8)
         {
-            var hash = "";
+            var hash = CreateMD5(input + i++);
 
             while (!hash.StartsWith("00000"))
                 hash = CreateMD5(input + i++);
 
-            solution.Append(hash[5]);
+            password.Append(hash[5]);
         }
 
-        Console.WriteLine($"Part One: {solution}");
+        Console.WriteLine($"Part One: {password}");
     }
 
     public void PartTwo(string path)
     {
-        Console.WriteLine($"No Part Two yet");
+        string input = File.ReadAllText(path);
+
+        int i = 0;
+        var password = "________".ToList();
+
+        while (password.Any(x => x == '_'))
+        {
+            var hash = CreateMD5(input + i++);
+
+            while (!hash.StartsWith("00000"))
+                hash = CreateMD5(input + i++);
+
+            if(int.TryParse(new string(hash[5], 1), out int position))
+                if (position >= 0 && position <= 7 && password[position] == '_')
+                    password[position] = hash[6];           
+        }
+
+        Console.WriteLine($"Part Two: {string.Join("", password)}");
     }
 
-    public static string CreateMD5(string input)
+    public string CreateMD5(string input)
     {
         using (MD5 md5 = MD5.Create())
         {
