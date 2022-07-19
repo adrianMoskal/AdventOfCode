@@ -7,11 +7,30 @@ internal sealed class Solver : ISolver
         string[] lines = File.ReadAllLines(path);
 
         var keypad = new string[] { "123", "456", "789" };
-        var (row, col) = (1, 1); // Start at 5
 
-        var solution = new StringBuilder();
+        string solution = FindBathroomCode(keypad, lines);
 
-        foreach (var line in lines)
+        Console.WriteLine($"Part One: {solution}");
+    }
+
+    public void PartTwo(string path)
+    {
+        string[] lines = File.ReadAllLines(path);
+
+        var keypad = new string[] { "  1  ", " 234 ", "56789", " ABC ", "  D  " };
+
+        string solution = FindBathroomCode(keypad, lines);
+
+        Console.WriteLine($"Part Two: {solution}");
+    }
+
+    string FindBathroomCode(string[] keypad, string[] directions)
+    {
+        var (row, col) = FindFive(keypad); // Start at 5
+
+        var code = new StringBuilder();
+
+        foreach (var line in directions)
         {
             foreach (var character in line)
             {
@@ -24,23 +43,28 @@ internal sealed class Solver : ISolver
                     _ => (0, 0)
                 };
 
-                if (0 <= (row + newRow) && (row + newRow) <= 2 &&
-                        0 <= (col + newCol) && (col + newCol) <= 2)
+                if ((0 <= (row + newRow) && (row + newRow) <= keypad.Length - 1 &&
+                        0 <= (col + newCol) && (col + newCol) <= keypad[0].Length - 1) &&
+                            keypad[row + newRow][col + newCol] != ' ')
                 {
                     (row, col) = (row + newRow, col + newCol);
                 }
             }
 
-            solution.Append(keypad[row][col]);
+            code.Append(keypad[row][col]);
         }
 
-        Console.WriteLine($"Part One: {solution}");
+        return code.ToString();
     }
 
-    public void PartTwo(string path)
+    (int, int) FindFive(string[] keypad)
     {
-        Console.WriteLine($"No Part Two yet");
-    }
+        for(int row = 0; row < keypad.Length; row++)
+            for(int col = 0; col < keypad[0].Length; col++)
+                if (keypad[row][col] == '5')
+                    return (row, col);
 
+        return (0, 0);
+    }
 
 }

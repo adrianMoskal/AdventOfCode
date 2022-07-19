@@ -20,7 +20,7 @@ internal static class AppRunner
 
             string currentDir = Environment.CurrentDirectory.Contains("Debug")
                 ? string.Format("..{0}..{0}..{0}", Path.DirectorySeparatorChar, Environment.CurrentDirectory)
-                : Environment.CurrentDirectory;
+                    : Environment.CurrentDirectory;
 
             string? path = string.Format("{0}{1}{2}{1}puzzleInput.txt", currentDir,
                 Path.DirectorySeparatorChar, string.Join(Path.DirectorySeparatorChar, args));
