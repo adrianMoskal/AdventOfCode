@@ -66,5 +66,4 @@ internal sealed class Solver : ISolver
 
         return (0, 0);
     }
-
 }
