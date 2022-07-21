@@ -1,5 +1,7 @@
 ﻿namespace AdventOfCode._2015.Day6;
 
+[Date(Year = "2015", Day = "6")]
+[PuzzleName("Probably a Fire Hazard")]
 internal sealed class Solver : ISolver
 {
     private enum Operation

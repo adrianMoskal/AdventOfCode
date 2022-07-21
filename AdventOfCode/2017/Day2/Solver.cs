@@ -1,5 +1,7 @@
 namespace AdventOfCode._2017.Day2;
 
+[Date(Year = "2017", Day = "2")]
+[PuzzleName("Corruption Checksum")]
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)

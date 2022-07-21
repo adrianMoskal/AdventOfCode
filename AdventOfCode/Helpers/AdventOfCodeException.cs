@@ -7,16 +7,14 @@ internal sealed class AdventOfCodeException : Exception
 
     private static string CreateMessage(AdventOfCodeErrorType error) => error switch
     {
-        AdventOfCodeErrorType.GetTypeError
-            => "\tCannot get type from provided input",
+        AdventOfCodeErrorType.MissingSolutionError
+            => "\tThere is no solution for this puzzle yet",
         AdventOfCodeErrorType.InterfaceMatchError
             => "\tObject created from input cannot implement ISolver interface",
         AdventOfCodeErrorType.ArgumentsError
             => "\tWrong format!\ndotnet run <year> day<number>",
         AdventOfCodeErrorType.YearArgumentError
             => "\tYear has to be number between 2015-2021",
-        AdventOfCodeErrorType.DayArgumentError
-            => "\tSecond argument has to be 'day<number>' or 'Day<number>'",
         AdventOfCodeErrorType.DayNumberError
             => "\tday<number>: number has to be number between 1 - 25",
         _ => "Something went wrong"
@@ -25,10 +23,9 @@ internal sealed class AdventOfCodeException : Exception
 
 internal enum AdventOfCodeErrorType
 {
-    GetTypeError,
+    MissingSolutionError,
     InterfaceMatchError,
     ArgumentsError,
     YearArgumentError,
-    DayArgumentError,
     DayNumberError
 }

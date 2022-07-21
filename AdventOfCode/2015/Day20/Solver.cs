@@ -1,5 +1,7 @@
 ﻿namespace AdventOfCode._2015.Day20;
 
+[Date(Year = "2015", Day = "20")]
+[PuzzleName("Infinite Elves and Infinite Houses")]
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)

@@ -1,5 +1,7 @@
 ﻿namespace AdventOfCode._2018.Day1;
 
+[Date(Year = "2018", Day = "1")]
+[PuzzleName("Chronal Calibration")]
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)

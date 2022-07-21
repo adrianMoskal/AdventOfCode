@@ -1,5 +1,7 @@
 namespace AdventOfCode._2017.Day4;
 
+[Date(Year = "2017", Day = "4")]
+[PuzzleName("High-Entropy Passphrases")]
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)

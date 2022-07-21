@@ -1,5 +1,7 @@
 ﻿namespace AdventOfCode._2019.Day1;
 
+[Date(Year = "2019", Day = "1")]
+[PuzzleName("The Tyranny of the Rocket Equation")]
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)

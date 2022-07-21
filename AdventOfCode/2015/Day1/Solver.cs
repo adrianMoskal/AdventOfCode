@@ -1,5 +1,7 @@
 ﻿namespace AdventOfCode._2015.Day1;
 
+[Date(Year = "2015", Day = "1")]
+[PuzzleName("Not Quite Lisp")]
 internal sealed class Solver : ISolver
 {
 

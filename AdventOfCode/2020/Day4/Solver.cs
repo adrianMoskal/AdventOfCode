@@ -1,5 +1,7 @@
 ﻿namespace AdventOfCode._2020.Day4;
 
+[Date(Year = "2020", Day = "4")]
+[PuzzleName("Passport Processing")]
 internal sealed class Solver : ISolver
 {
     private string[] mandatoryFields = { "byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid" };
@@ -16,6 +18,6 @@ internal sealed class Solver : ISolver
 
     public void PartTwo(string path)
     {
-        Console.WriteLine($"\tNo Part Two yet ");
+        AdventConsole.PartTwoNoSolutionYet();
     }
 }

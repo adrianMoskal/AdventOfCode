@@ -1,5 +1,7 @@
 ﻿namespace AdventOfCode._2016.Day7;
 
+[Date(Year = "2016", Day = "7")]
+[PuzzleName("Internet Protocol Version 7")]
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)
@@ -13,7 +15,7 @@ internal sealed class Solver : ISolver
 
     public void PartTwo(string path)
     {
-        Console.WriteLine($"\tNo Part Two yet");
+        AdventConsole.PartTwoNoSolutionYet();
     }
 
     private bool SupportTLS(string address)

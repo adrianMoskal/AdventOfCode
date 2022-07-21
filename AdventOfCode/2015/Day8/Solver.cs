@@ -1,5 +1,7 @@
 ﻿namespace AdventOfCode._2015.Day8;
 
+[Date(Year = "2015", Day = "8")]
+[PuzzleName("Matchsticks")]
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)
@@ -13,6 +15,6 @@ internal sealed class Solver : ISolver
 
     public void PartTwo(string path)
     {
-        Console.WriteLine($"\tNo Part Two yet");
+        AdventConsole.PartTwoNoSolutionYet();
     }
 }

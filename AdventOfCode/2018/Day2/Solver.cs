@@ -1,5 +1,7 @@
 ﻿namespace AdventOfCode._2018.Day2;
 
+[Date(Year = "2018", Day = "2")]
+[PuzzleName("Inventory Management System")]
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)

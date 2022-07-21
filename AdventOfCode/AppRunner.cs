@@ -1,4 +1,6 @@
-﻿namespace AdventOfCode;
+﻿using System.Reflection;
+
+namespace AdventOfCode;
 
 internal static class AppRunner
 {
@@ -8,35 +10,40 @@ internal static class AppRunner
         {
             Validator.Validate(args);
 
-            string argsInput = string.Format("AdventOfCode._{0}.{1}.Solver", args[0], args[1].Capitalize());
-
-            Type? type = Type.GetType(argsInput)
-                ?? throw new AdventOfCodeException(AdventOfCodeErrorType.GetTypeError);
+            Type? type = Assembly.GetExecutingAssembly().GetTypes().FirstOrDefault(t =>
+                            t.GetCustomAttribute<DateAttribute>()?.Year == args[0] &&
+                            t.GetCustomAttribute<DateAttribute>()?.Day == args[1])
+                                ?? throw new AdventOfCodeException(AdventOfCodeErrorType.MissingSolutionError);
 
             dynamic? o = Activator.CreateInstance(type);
 
             ISolver? solver = (ISolver?)o
                 ?? throw new AdventOfCodeException(AdventOfCodeErrorType.InterfaceMatchError);
 
-            string currentDir = Environment.CurrentDirectory.Contains("Debug")
+            string? currentDir = Environment.CurrentDirectory.Contains("Debug")
                 ? string.Format("..{0}..{0}..{0}", Path.DirectorySeparatorChar, Environment.CurrentDirectory)
                     : Environment.CurrentDirectory;
 
-            string? path = string.Format("{0}{1}{2}{1}puzzleInput.txt", currentDir,
-                Path.DirectorySeparatorChar, string.Join(Path.DirectorySeparatorChar, args));
+            string? endpoint = type.Namespace?.Substring(type.Namespace.IndexOf('_') + 1)
+                .Replace('.', Path.DirectorySeparatorChar);
 
-            AdventConsole.PrintTitle();
+            string? path = string.Format("{0}{1}{2}{1}puzzleInput.txt", currentDir,
+                Path.DirectorySeparatorChar, endpoint);
+
+            var dateAttr = type.GetCustomAttribute<DateAttribute>() 
+                ?? throw new ArgumentException();
+
+            var nameAttr = type.GetCustomAttribute<PuzzleName>() 
+                ?? throw new ArgumentException();
+
+            AdventConsole.PrintTitle(dateAttr.Year, dateAttr.Day, nameAttr.Name);
 
             solver.PartOne(path);
             solver.PartTwo(path);
         }
-        catch (ArgumentNullException)
-        {
-            AdventConsole.WriteError("There is no solution for this quiz yet :c");
-        }
         catch (AdventOfCodeException e)
         {
-            AdventConsole.WriteError(e.Message);
+            AdventConsole.WriteLineError(e.Message);
         }
     }
 }

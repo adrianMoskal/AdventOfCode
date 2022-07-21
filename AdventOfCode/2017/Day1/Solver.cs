@@ -1,5 +1,7 @@
 namespace AdventOfCode._2017.Day1;
 
+[Date(Year = "2017", Day = "1")]
+[PuzzleName("Inverse Captcha")]
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)

@@ -45,6 +45,7 @@ I made this project with the aim of **problem solving** and **LINQ** practice. T
 ### Built With
 
 * [C# 10 (.NET 6)](https://docs.microsoft.com/pl-pl/dotnet/csharp/)
+* [Figgle - ASCII banner generator](https://github.com/drewnoakes/figgle)
 <br /><br />
 
 
@@ -61,21 +62,21 @@ I made this project with the aim of **problem solving** and **LINQ** practice. T
     * **Command line** <br />
       Use this command to run explicit solution: <br />
       ```sh
-      dotnet run <year> day<number>
+      dotnet run <year> <day>
       ```
       e.g.:
       ```sh
-      dotnet run 2015 day1
+      dotnet run 2015 1
       ```
       <br /><br />
     * **Visual Studio** <br />
       Right click on project and go to **Debug** section in **project properties**. Setup command line arguments:
        ```sh
-      <year> day<number>
+      <year> <number>
       ```
       e.g.:
       ```sh
-      2015 day1
+      2015 1
       ```
       Run project
 <br /><br />

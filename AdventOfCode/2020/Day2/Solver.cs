@@ -1,5 +1,7 @@
 namespace AdventOfCode._2020.Day2;
 
+[Date(Year = "2020", Day = "2")]
+[PuzzleName("Password Philosophy")]
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)

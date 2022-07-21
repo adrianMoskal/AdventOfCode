@@ -1,5 +1,7 @@
 ﻿namespace AdventOfCode._2015.Day5;
 
+[Date(Year = "2015", Day = "5")]
+[PuzzleName("Doesn't He Have Intern-Elves For This?")]
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)
@@ -19,7 +21,7 @@ internal sealed class Solver : ISolver
 
     public void PartTwo(string path)
     {
-        Console.WriteLine($"\tNo Part Two yet");
+        AdventConsole.PartTwoNoSolutionYet();
     }
 }
 

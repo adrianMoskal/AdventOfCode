@@ -1,5 +1,7 @@
 ﻿namespace AdventOfCode._2015.Day9;
 
+[Date(Year = "2015", Day = "9")]
+[PuzzleName("All in a Single Night")]
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)
@@ -8,12 +10,12 @@ internal sealed class Solver : ISolver
 
         var verticles = Parse(lines);
 
-        Console.WriteLine($"No Part One yet");
+        AdventConsole.PartOneNoSolutionYet();
     }
 
     public void PartTwo(string path)
     {
-        Console.WriteLine($"No Part Two yet");
+        AdventConsole.PartTwoNoSolutionYet();
     }
 
     Dictionary<string, List<(string, int)>> Parse(string[] input)

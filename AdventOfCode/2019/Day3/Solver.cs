@@ -1,5 +1,7 @@
 ﻿namespace AdventOfCode._2019.Day3;
 
+[Date(Year = "2019", Day = "3")]
+[PuzzleName("Crossed Wires")]
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)
@@ -34,6 +36,6 @@ internal sealed class Solver : ISolver
 
     public void PartTwo(string path)
     {
-        Console.WriteLine("\tNo part two yet");
+        AdventConsole.PartTwoNoSolutionYet();
     }
 }

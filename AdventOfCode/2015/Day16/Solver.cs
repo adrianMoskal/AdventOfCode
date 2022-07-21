@@ -1,5 +1,7 @@
 ﻿namespace AdventOfCode._2015.Day16;
 
+[Date(Year = "2015", Day = "16")]
+[PuzzleName("Aunt Sue")]
 internal sealed class Solver : ISolver
 {
     private Aunt pattern = new Aunt(-1)

@@ -1,5 +1,7 @@
 ﻿namespace AdventOfCode._2016.Day2;
 
+[Date(Year = "2016", Day = "2")]
+[PuzzleName("Bathroom Security")]
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)

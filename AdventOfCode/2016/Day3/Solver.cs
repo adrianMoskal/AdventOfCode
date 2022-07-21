@@ -1,5 +1,7 @@
 ﻿namespace AdventOfCode._2016.Day3;
 
+[Date(Year = "2016", Day = "3")]
+[PuzzleName("Squares With Three Sides")]
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)

@@ -1,5 +1,7 @@
 ﻿namespace AdventOfCode._2021.Day6;
 
+[Date(Year = "2021", Day = "6")]
+[PuzzleName("Lanternfish")]
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)
@@ -20,7 +22,7 @@ internal sealed class Solver : ISolver
 
     public void PartTwo(string path)
     {
-        Console.WriteLine($"\tNo Part Two yet");
+        AdventConsole.PartTwoNoSolutionYet();
     }
 
     IEnumerable<IEnumerable<int>> FishesGenerator(List<int> fishes)

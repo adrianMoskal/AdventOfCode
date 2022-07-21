@@ -27,25 +27,13 @@ internal static class Validator
 
     private static void ValidateYearRange(int year)
     {
-        if (2015 > year || year > 2021)
+        if (year < 2015 || year > 2021)
             throw new AdventOfCodeException(AdventOfCodeErrorType.YearArgumentError);
     }
 
     private static void ValidateDay(string dayArg)
     {
-        ValidateDayContent(dayArg);
-        ValidateDayIsNumber(dayArg);
-    }
-
-    private static void ValidateDayContent(string dayArg)
-    {
-        if (!dayArg.ToLower().StartsWith("day"))
-            throw new AdventOfCodeException(AdventOfCodeErrorType.DayArgumentError);
-    }
-
-    private static void ValidateDayIsNumber(string dayArg)
-    {
-        bool successfullyParsed = int.TryParse(dayArg.Substring(3), out int day);
+        bool successfullyParsed = int.TryParse(dayArg, out int day);
 
         if (successfullyParsed)
             ValidateDayRange(day);
@@ -55,7 +43,7 @@ internal static class Validator
 
     private static void ValidateDayRange(int day)
     {
-        if (1 > day || day > 25)
+        if (day < 1 || day > 25)
             throw new AdventOfCodeException(AdventOfCodeErrorType.DayNumberError);
     }
 }

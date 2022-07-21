@@ -1,5 +1,7 @@
 ﻿namespace AdventOfCode._2021.Day7;
 
+[Date(Year = "2021", Day = "7")]
+[PuzzleName("The Treachery of Whales")]
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)

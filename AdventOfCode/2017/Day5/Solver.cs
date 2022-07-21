@@ -1,5 +1,7 @@
 namespace AdventOfCode._2017.Day5;
 
+[Date(Year = "2017", Day = "5")]
+[PuzzleName("A Maze of Twisty Trampolines, All Alike")]
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)

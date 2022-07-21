@@ -1,5 +1,7 @@
 ﻿namespace AdventOfCode._2015.Day4;
 
+[Date(Year = "2015", Day = "4")]
+[PuzzleName("The Ideal Stocking Stuffer")]
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)
