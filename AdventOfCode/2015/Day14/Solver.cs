@@ -14,7 +14,7 @@ internal sealed class Solver : ISolver
 
         int solution = reindeers.Max(r => r.Distance);
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -32,7 +32,7 @@ internal sealed class Solver : ISolver
 
         int solution = reindeers.Max(r => r.Points);
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 
     private List<Reindeer> Parse(string[] input)

@@ -11,7 +11,7 @@ internal sealed class Solver : ISolver
                 .Select(x => int.Parse(input[x].ToString()))
                 .Sum();
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -23,6 +23,6 @@ internal sealed class Solver : ISolver
                 .Select(x => int.Parse(input[x].ToString()))
                 .Sum();
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 }

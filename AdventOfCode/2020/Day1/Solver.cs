@@ -10,7 +10,7 @@ internal sealed class Solver : ISolver
             .First(c => c.Sum() == 2020)
             .Aggregate((x, y) => x * y);
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -21,7 +21,7 @@ internal sealed class Solver : ISolver
             .First(c => c.Sum() == 2020)
             .Aggregate((x, y) => x * y);
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 }
 

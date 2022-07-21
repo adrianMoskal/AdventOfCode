@@ -11,7 +11,7 @@ internal sealed class Solver : ISolver
 
         int solution = Math.Abs(lastPos.Item1 - 0) + Math.Abs(lastPos.Item2 - 0);
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -25,7 +25,7 @@ internal sealed class Solver : ISolver
 
         int solution = Math.Abs(firstTwice.Item1 - 0) + Math.Abs(firstTwice.Item2 - 0);
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 
     private enum Direction

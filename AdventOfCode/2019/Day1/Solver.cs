@@ -5,9 +5,9 @@ internal sealed class Solver : ISolver
     public void PartOne(string path)
     {
         string[] lines = File.ReadAllLines(path);
-        double fuelNeeded = lines.Sum(m => Math.Floor(double.Parse(m) / 3) - 2);
+        double solution = lines.Sum(m => Math.Floor(double.Parse(m) / 3) - 2);
 
-        Console.WriteLine($"Part One: {fuelNeeded}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -17,7 +17,7 @@ internal sealed class Solver : ISolver
 
         Stack<double> modulesMass = new Stack<double>(masses);
 
-        double fuelSum = 0;
+        double solution = 0;
         while (modulesMass.Any())
         {
             double mass = modulesMass.Pop();
@@ -25,10 +25,10 @@ internal sealed class Solver : ISolver
 
             if (fuel > 0)
             {
-                fuelSum += fuel;
+                solution += fuel;
                 modulesMass.Push(fuel);
             }
         }
-        Console.WriteLine($"Part Two: {fuelSum}");
+        AdventConsole.PartTwo(solution);
     }
 }

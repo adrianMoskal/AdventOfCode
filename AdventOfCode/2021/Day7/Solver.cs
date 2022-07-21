@@ -10,7 +10,7 @@ internal sealed class Solver : ISolver
 
         int solution = PossibleFuels(positions, true).Min();
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -21,7 +21,7 @@ internal sealed class Solver : ISolver
 
         int solution = PossibleFuels(positions, false).Min();
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 
     private IEnumerable<int> PossibleFuels(IEnumerable<int> positions, bool constantRate)

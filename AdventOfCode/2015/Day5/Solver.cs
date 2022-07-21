@@ -14,12 +14,12 @@ internal sealed class Solver : ISolver
             .Where(w => Enumerable.Range(0, w.Length - 1).Any(x => w[x].Equals(w[x + 1])))
             .Count();
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
     {
-        Console.WriteLine($"No Part Two yet");
+        Console.WriteLine($"\tNo Part Two yet");
     }
 }
 

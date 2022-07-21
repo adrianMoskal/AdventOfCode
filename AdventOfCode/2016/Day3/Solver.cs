@@ -9,7 +9,7 @@ internal sealed class Solver : ISolver
         int solution = Parse(lines)
             .Count(t => ValidTriangle(t));
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -19,7 +19,7 @@ internal sealed class Solver : ISolver
         var solution = GetTransposedTriangles(Parse(lines))
             .Count(t => ValidTriangle(t));
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 
     private IEnumerable<IEnumerable<int>> Parse(IEnumerable<string> input)

@@ -29,11 +29,11 @@ internal sealed class Solver : ISolver
             }
         }
 
-        Console.WriteLine($"Part One: {closest}");
+        AdventConsole.PartOne(closest);
     }
 
     public void PartTwo(string path)
     {
-        Console.WriteLine("No part two yet");
+        Console.WriteLine("\tNo part two yet");
     }
 }

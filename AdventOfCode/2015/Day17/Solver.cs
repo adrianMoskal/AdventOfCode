@@ -9,7 +9,7 @@ internal sealed class Solver : ISolver
 
         int solution = Combinations(containers).Where(x => x.Sum() == 150).Count();
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -20,7 +20,7 @@ internal sealed class Solver : ISolver
         int min = Combinations(containers).Where(x => x.Sum() == 150).Min(c => c.Length);
         int solution = Combinations(containers).Where(x => x.Sum() == 150 && x.Length == min).Count();
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 
     private IEnumerable<int[]> Combinations(int[] elements)

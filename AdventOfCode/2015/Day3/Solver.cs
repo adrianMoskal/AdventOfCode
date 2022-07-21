@@ -9,7 +9,7 @@ internal sealed class Solver : ISolver
         HashSet<Tuple<int, int>> houses = Deliver(moves);
         int solution = houses.Count();
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -26,7 +26,7 @@ internal sealed class Solver : ISolver
 
         int solution = santaHouses.Count();
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 
 

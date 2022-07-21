@@ -11,20 +11,10 @@ internal sealed class Solver : ISolver
         IntcodeComputer computer = new IntcodeComputer(numbersInput);
         computer.PrepareProgram();
 
-        try
-        {
-            computer.RestoreGravityAssistProgram();
-            solution = computer.ValueAt(0);
-        }
-        catch (ArgumentException e)
-        {
-            Console.WriteLine(e.Message);
-        }
+        computer.RestoreGravityAssistProgram();
+        solution = computer.ValueAt(0);
 
-        if (solution != null)
-        {
-            Console.WriteLine($"Part One: {solution}");
-        }
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -35,37 +25,30 @@ internal sealed class Solver : ISolver
         IntcodeComputer computer = new IntcodeComputer(numbersInput);
 
         bool flag = false;
-        try
+        for (int i = 0; i <= 99; i++)
         {
-            for (int i = 0; i <= 99; i++)
+            computer.Noun = i;
+            for (int j = 0; j <= 99; j++)
             {
-                computer.Noun = i;
-                for (int j = 0; j <= 99; j++)
+                computer.Verb = j;
+                computer.PrepareProgram();
+                computer.RestoreGravityAssistProgram();
+
+                if (computer.ValueAt(0) == 19690720)
                 {
-                    computer.Verb = j;
-                    computer.PrepareProgram();
-                    computer.RestoreGravityAssistProgram();
-
-                    if (computer.ValueAt(0) == 19690720)
-                    {
-                        flag = true;
-                        break;
-                    }
-
-                    computer.RestoreToDefault();
-                }
-
-                if (flag)
-                {
+                    flag = true;
                     break;
                 }
+
+                computer.RestoreToDefault();
             }
-        }
-        catch (ArgumentException e)
-        {
-            Console.WriteLine(e.Message);
+
+            if (flag)
+                break;
         }
 
-        Console.WriteLine($"Part Two: {100 * computer.Noun + computer.Verb}");
+        var solution = 100 * computer.Noun + computer.Verb;
+
+        AdventConsole.PartTwo(solution);
     }
 }

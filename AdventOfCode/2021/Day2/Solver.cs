@@ -9,7 +9,7 @@ internal sealed class Solver : ISolver
         var state = Dive(lines, false).Last();
         int solution = state[0] * state[1];
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -19,7 +19,7 @@ internal sealed class Solver : ISolver
         var state = Dive(lines, true).Last();
         int solution = state[0] * state[1];
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 
     private IEnumerable<List<int>> Dive(string[] instructions, bool aiming)

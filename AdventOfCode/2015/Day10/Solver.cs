@@ -8,7 +8,7 @@ internal sealed class Solver : ISolver
 
         int solution = LookAndSayNumbers(input).ElementAt(39).Length;
 
-        Console.WriteLine($"Part One: {solution} ");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -17,7 +17,7 @@ internal sealed class Solver : ISolver
 
         int solution = LookAndSayNumbers(input).ElementAt(49).Length;
 
-        Console.WriteLine($"Part Two: {solution} ");
+        AdventConsole.PartTwo(solution);
     }
 
     IEnumerable<string> LookAndSayNumbers(string number)

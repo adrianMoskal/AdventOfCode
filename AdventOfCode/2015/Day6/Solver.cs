@@ -43,7 +43,7 @@ internal sealed class Solver : ISolver
             }
         }
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -86,7 +86,7 @@ internal sealed class Solver : ISolver
             }
         }
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 
     private List<Tuple<Operation, int[], int[]>> GetInstructions(string[] lines)

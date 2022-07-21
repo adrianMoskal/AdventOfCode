@@ -8,9 +8,7 @@ internal sealed class Solver : ISolver
 
         var verticles = Parse(lines);
 
-        
-
-        Console.WriteLine($"Part One: ");
+        Console.WriteLine($"No Part One yet");
     }
 
     public void PartTwo(string path)

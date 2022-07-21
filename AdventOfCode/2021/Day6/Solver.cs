@@ -15,12 +15,12 @@ internal sealed class Solver : ISolver
             .First()
             .Count();
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
     {
-        Console.WriteLine($"No Part Two yet");
+        Console.WriteLine($"\tNo Part Two yet");
     }
 
     IEnumerable<IEnumerable<int>> FishesGenerator(List<int> fishes)

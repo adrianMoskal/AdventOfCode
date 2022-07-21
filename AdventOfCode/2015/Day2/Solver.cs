@@ -7,7 +7,7 @@ internal sealed class Solver : ISolver
         string[] lines = File.ReadAllLines(path);
         var sum = Prepare(lines).Select(x => Area(x) + Sides(x).Min()).Sum();
 
-        Console.WriteLine($"Part One: {sum}");
+        AdventConsole.PartOne(sum);
     }
 
     public void PartTwo(string path)
@@ -15,7 +15,7 @@ internal sealed class Solver : ISolver
         string[] lines = File.ReadAllLines(path);
         var sum = Prepare(lines).Select(x => Volume(x) + Perimeters(x).Min()).Sum();
 
-        Console.WriteLine($"Part Two: {sum}");
+        AdventConsole.PartTwo(sum);
     }
 
     private IEnumerable<int[]> Prepare(string[] dimensions)

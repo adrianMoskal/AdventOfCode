@@ -13,7 +13,7 @@ internal sealed class Solver : ISolver
             solution += elements.Max() - elements.Min();
         }
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -29,6 +29,6 @@ internal sealed class Solver : ISolver
             ).Sum();
         }
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 }

@@ -8,11 +8,11 @@ internal sealed class Solver : ISolver
 
         int solution = lines.Select(l => (l.Length + 2) - Regex.Unescape(l).Length).Sum();
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
     {
-        Console.WriteLine($"No Part Two yet");
+        Console.WriteLine($"\tNo Part Two yet");
     }
 }

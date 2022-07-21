@@ -11,7 +11,7 @@ internal sealed class Solver : ISolver
         int solution = realRooms.Select(x => GetSector(x))
             .Sum();
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -36,7 +36,7 @@ internal sealed class Solver : ISolver
             }
         }
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 
     private string GetName(string room)

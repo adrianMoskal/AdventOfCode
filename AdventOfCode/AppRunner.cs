@@ -25,16 +25,18 @@ internal static class AppRunner
             string? path = string.Format("{0}{1}{2}{1}puzzleInput.txt", currentDir,
                 Path.DirectorySeparatorChar, string.Join(Path.DirectorySeparatorChar, args));
 
+            AdventConsole.PrintTitle();
+
             solver.PartOne(path);
             solver.PartTwo(path);
         }
         catch (ArgumentNullException)
         {
-            Console.WriteLine("There is no solution for this quiz yet :c");
+            AdventConsole.WriteError("There is no solution for this quiz yet :c");
         }
         catch (AdventOfCodeException e)
         {
-            Console.WriteLine(e.Message);
+            AdventConsole.WriteError(e.Message);
         }
     }
 }

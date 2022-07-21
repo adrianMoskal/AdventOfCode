@@ -12,7 +12,7 @@ internal sealed class Solver : ISolver
             solution += change;
         }
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -36,6 +36,6 @@ internal sealed class Solver : ISolver
             }
         }
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 }

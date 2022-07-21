@@ -9,7 +9,7 @@ internal sealed class Solver : ISolver
 
         int solution = Enumerable.Range(1, int.MaxValue).First(x => CreateMD5(input + x).StartsWith(prefix));
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -19,7 +19,7 @@ internal sealed class Solver : ISolver
 
         int solution = Enumerable.Range(1, int.MaxValue).First(x => CreateMD5(input + x).StartsWith(prefix));
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 
     public static string CreateMD5(string input)

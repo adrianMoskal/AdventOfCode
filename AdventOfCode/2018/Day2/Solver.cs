@@ -16,7 +16,7 @@ internal sealed class Solver : ISolver
 
         int solution = count_two * count_three;
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -36,8 +36,7 @@ internal sealed class Solver : ISolver
             }
         }
 
-        string solution = sb.ToString();
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(sb.ToString());
     }
 
 

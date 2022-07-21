@@ -9,7 +9,7 @@ internal sealed class Solver : ISolver
         int solution = lines.Count(x => 
             x.Distinct().Count() == x.Length);
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -20,6 +20,6 @@ internal sealed class Solver : ISolver
             x.Select(w => string.Join("", w.OrderBy(c => c)))
                 .Distinct().Count() == x.Length);
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 }

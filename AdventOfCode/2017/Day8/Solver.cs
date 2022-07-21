@@ -1,5 +1,6 @@
 namespace AdventOfCode._2017.Day8;
 
+
 internal sealed class Solver : ISolver
 {
     public void PartOne(string path)
@@ -23,7 +24,7 @@ internal sealed class Solver : ISolver
 
         int solution = registers.Values.Max();
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -49,7 +50,7 @@ internal sealed class Solver : ISolver
                 solution = registers[reg];
         });
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 
     private bool ValidateCondition(int registerValue, string symbol, int conditionValue)

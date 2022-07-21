@@ -19,7 +19,7 @@ internal sealed class Solver : ISolver
             password.Append(hash[5]);
         }
 
-        Console.WriteLine($"Part One: {password}");
+        AdventConsole.PartOne(password);
     }
 
     public void PartTwo(string path)
@@ -41,7 +41,8 @@ internal sealed class Solver : ISolver
                     password[position] = hash[6];           
         }
 
-        Console.WriteLine($"Part Two: {string.Join("", password)}");
+        var solution = string.Join("", password);
+        AdventConsole.PartTwo(solution);
     }
 
     public string CreateMD5(string input)

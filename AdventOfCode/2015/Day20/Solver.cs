@@ -8,7 +8,7 @@ internal sealed class Solver : ISolver
 
         int solution = HousePresents(10).First(x => x.Item2 >= input).Item1;
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -17,7 +17,7 @@ internal sealed class Solver : ISolver
 
         int solution = HousePresents(11, true).First(x => x.Item2 >= input).Item1;
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 
     IEnumerable<Tuple<int, int>> HousePresents(int presentsForHouse, bool stop=false)

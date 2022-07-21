@@ -8,12 +8,12 @@ internal sealed class Solver : ISolver
 
         int solution = lines.Count(x => SupportTLS(x));
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
     {
-        Console.WriteLine($"No Part Two yet");
+        Console.WriteLine($"\tNo Part Two yet");
     }
 
     private bool SupportTLS(string address)

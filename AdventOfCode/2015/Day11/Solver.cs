@@ -8,7 +8,7 @@ internal sealed class Solver : ISolver
 
         password = PasswordChanger(password).ElementAt(0);
 
-        Console.WriteLine($"Part One: {password}");
+        AdventConsole.PartOne(password);
     }
 
     public void PartTwo(string path)
@@ -17,7 +17,7 @@ internal sealed class Solver : ISolver
 
         password = PasswordChanger(password).ElementAt(1);
 
-        Console.WriteLine($"Part Two: {password}");
+        AdventConsole.PartTwo(password);
     }
 
     IEnumerable<string> PasswordChanger(string password)

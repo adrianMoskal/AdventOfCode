@@ -23,7 +23,7 @@ internal sealed class Solver : ISolver
 
         int solution = aunts.Single(a => pattern.Equals(a)).Number;
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -33,7 +33,7 @@ internal sealed class Solver : ISolver
 
         int solution = aunts.Single(a => pattern.EqualsPartTwo(a)).Number;
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 
     private List<Aunt> Parse(string[] input)

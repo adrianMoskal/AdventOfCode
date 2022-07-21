@@ -16,7 +16,7 @@ internal sealed class Solver : ISolver
 
         var solution = string.Concat(mostFrequents);
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -33,7 +33,7 @@ internal sealed class Solver : ISolver
 
         var solution = string.Concat(mostFrequents);
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 
     private IEnumerable<string> Transpose(string[] matrix)

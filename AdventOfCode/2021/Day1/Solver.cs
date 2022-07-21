@@ -10,7 +10,7 @@ internal sealed class Solver : ISolver
         int solution = Enumerable.Range(1, lines.Length - 1)
             .Count(x => measurements.ElementAt(x) > measurements.ElementAt(x - 1));
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -23,6 +23,6 @@ internal sealed class Solver : ISolver
 
         int solution = Enumerable.Range(1, windowSums.Count() - 1).Count(x => windowSums.ElementAt(x) > windowSums.ElementAt(x - 1));
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 }

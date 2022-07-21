@@ -10,7 +10,7 @@ internal sealed class Solver : ISolver
         int level = 0;
         input.Sum(x => x.Equals('(') ? level++ : level--);
 
-        Console.WriteLine($"Part One: {level}");
+        AdventConsole.PartOne(level);
     }
 
     public void PartTwo(string path)
@@ -21,6 +21,6 @@ internal sealed class Solver : ISolver
         var levels = input.Select(x => x.Equals('(') ? ++level : --level).ToList();
         int position = levels.IndexOf(-1) + 1;
 
-        Console.WriteLine($"Part Two: {position}");
+        AdventConsole.PartTwo(position);
     }
 }

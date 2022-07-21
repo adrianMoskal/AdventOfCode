@@ -14,7 +14,7 @@ internal sealed class Solver : ISolver
 
         int solution = gammaRate * epsilonRate;
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -42,7 +42,7 @@ internal sealed class Solver : ISolver
 
         int solution = oxygenGeneratorRating * co2ScrubberRating;
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 
     private char MostCommonBit(List<string> bytes, int position)

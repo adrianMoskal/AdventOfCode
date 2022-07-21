@@ -10,7 +10,7 @@ internal sealed class Solver : ISolver
 
         string solution = FindBathroomCode(keypad, lines);
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
@@ -21,7 +21,7 @@ internal sealed class Solver : ISolver
 
         string solution = FindBathroomCode(keypad, lines);
 
-        Console.WriteLine($"Part Two: {solution}");
+        AdventConsole.PartTwo(solution);
     }
 
     string FindBathroomCode(string[] keypad, string[] directions)

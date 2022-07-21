@@ -8,17 +8,17 @@ internal sealed class AdventOfCodeException : Exception
     private static string CreateMessage(AdventOfCodeErrorType error) => error switch
     {
         AdventOfCodeErrorType.GetTypeError
-            => "Cannot get type from provided input",
+            => "\tCannot get type from provided input",
         AdventOfCodeErrorType.InterfaceMatchError
-            => "Object created from input cannot implement ISolver interface",
+            => "\tObject created from input cannot implement ISolver interface",
         AdventOfCodeErrorType.ArgumentsError
-            => "Wrong format!\ndotnet run <year> day<number>",
+            => "\tWrong format!\ndotnet run <year> day<number>",
         AdventOfCodeErrorType.YearArgumentError
-            => "Year has to be number between 2015-2021",
+            => "\tYear has to be number between 2015-2021",
         AdventOfCodeErrorType.DayArgumentError
-            => "Second argument has to be 'day<number>' or 'Day<number>'",
+            => "\tSecond argument has to be 'day<number>' or 'Day<number>'",
         AdventOfCodeErrorType.DayNumberError
-            => "day<number>: number has to be number between 1 - 25",
+            => "\tday<number>: number has to be number between 1 - 25",
         _ => "Something went wrong"
     };
 }

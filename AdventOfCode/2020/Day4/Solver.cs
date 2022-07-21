@@ -11,13 +11,11 @@ internal sealed class Solver : ISolver
             mandatoryFields.All(f => x.Contains(f))
         ).Count();
 
-        Console.WriteLine($"Part One: {solution}");
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
     {
-       
-
-        Console.WriteLine($"Part Two: ");
+        Console.WriteLine($"\tNo Part Two yet ");
     }
 }
