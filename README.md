@@ -45,7 +45,10 @@ I made this project with the aim of **problem solving** and **LINQ** practice. T
 ### Built With
 
 * [C# 10 (.NET 6)](https://docs.microsoft.com/pl-pl/dotnet/csharp/)
-* [Figgle - ASCII banner generator](https://github.com/drewnoakes/figgle)
+
+* *Third party libraries*
+
+  * [Figgle - ASCII banner generator](https://github.com/drewnoakes/figgle)
 <br /><br />
 
 
