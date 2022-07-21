@@ -4,12 +4,14 @@
   <img src="https://img.shields.io/github/stars/adrianMoskal/AdventOfCode?style=flat-square" alt="stars" />
   <img src="https://img.shields.io/github/languages/code-size/adrianMoskal/AdventOfCode?style=flat-square" alt="code_size" />
 </div>
+
 <br /><br />
 
 <div id="top"></div>
   <h1 align="center">Advent Of Code</h1>
   <h3 align="center">Solutions in C#</h3>
 </div>
+
 <br /><br />
 
 
@@ -31,6 +33,7 @@
     </li>
   </ol>
 </details>
+
 <br /><br />
 
 
@@ -39,18 +42,20 @@
 This is **console application** with my solutions of Advent of Code quizes. In this moment I didn't solve every problem but there will be all solutions in the future.
 <br /><br />
 I made this project with the aim of **problem solving** and **LINQ** practice. That's why most of solutions are made in LINQ (if there is a possibility to keep solution clean and readable at decent level)
+
 <br /><br />
 
 
-### Built With
+## Built With
 
 * [C# 10 (.NET 6)](https://docs.microsoft.com/pl-pl/dotnet/csharp/)
 
 * *Third party libraries*
 
   * [Figgle - ASCII banner generator](https://github.com/drewnoakes/figgle)
+  * [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json)
+  
 <br /><br />
-
 
 ## Getting Started
 
@@ -82,6 +87,7 @@ I made this project with the aim of **problem solving** and **LINQ** practice. T
       2015 3
       ```
       Run project
+      
 <br /><br />
 
 <p align="center">
