@@ -66,7 +66,7 @@ I made this project with the aim of **problem solving** and **LINQ** practice. T
       ```
       e.g.:
       ```sh
-      dotnet run 2015 1
+      dotnet run 2015 3
       ```
       <br /><br />
     * **Visual Studio** <br />
@@ -76,11 +76,14 @@ I made this project with the aim of **problem solving** and **LINQ** practice. T
       ```
       e.g.:
       ```sh
-      2015 1
+      2015 3
       ```
       Run project
 <br /><br />
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/45601177/180229224-548824b0-4103-4def-b293-b8bbb44378cd.JPG">
+</p>
 
 ## Contact
 <a href="https://linkedin.com/in/adrian-moskal-990a5a191" target="blank">
