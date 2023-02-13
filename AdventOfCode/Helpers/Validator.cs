@@ -27,7 +27,7 @@ internal static class Validator
 
     private static void ValidateYearRange(int year)
     {
-        if (year < 2015 || year > 2021)
+        if (year < 2015 || year > 2022)
             throw new AdventOfCodeException(AdventOfCodeErrorType.YearArgumentError);
     }
 

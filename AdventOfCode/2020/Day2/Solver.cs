@@ -13,7 +13,7 @@ internal sealed class Solver : ISolver
 
        int solution = passwords.Count(p => p.OldValidation());
 
-        AdventConsole.PartOne(solution);
+       AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
