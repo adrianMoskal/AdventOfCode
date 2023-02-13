@@ -9,7 +9,8 @@ internal sealed class Solver : ISolver
         string input = File.ReadAllText(path);
         string prefix = "00000";
 
-        int solution = Enumerable.Range(1, int.MaxValue).First(x => CreateMD5(input + x).StartsWith(prefix));
+        int solution = GetHashes(input)
+            .First(x =>x.Item2.StartsWith(prefix)).Item1;
 
         AdventConsole.PartOne(solution);
     }
@@ -19,9 +20,16 @@ internal sealed class Solver : ISolver
         string input = File.ReadAllText(path);
         string prefix = "000000";
 
-        int solution = Enumerable.Range(1, int.MaxValue).First(x => CreateMD5(input + x).StartsWith(prefix));
+        int solution = GetHashes(input)
+            .First(x => x.Item2.StartsWith(prefix)).Item1;
 
         AdventConsole.PartTwo(solution);
+    }
+
+    private IEnumerable<(int, string)> GetHashes(string input)
+    {
+        for (int i = 1; i <= int.MaxValue; i++)
+            yield return (i, CreateMD5(input + i));
     }
 
     public static string CreateMD5(string input)

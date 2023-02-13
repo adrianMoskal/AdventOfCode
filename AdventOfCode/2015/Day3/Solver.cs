@@ -8,7 +8,7 @@ internal sealed class Solver : ISolver
     {
         string moves = File.ReadAllText(path);
 
-        HashSet<Tuple<int, int>> houses = Deliver(moves);
+        var houses = Deliver(moves);
         int solution = houses.Count();
 
         AdventConsole.PartOne(solution);
@@ -21,8 +21,8 @@ internal sealed class Solver : ISolver
         var santaMoves = moves.Where((move, ind) => ind % 2 == 0);
         var roboSantaMoves = moves.Where((move, ind) => ind % 2 != 0);
 
-        HashSet<Tuple<int, int>> santaHouses = Deliver(santaMoves);
-        HashSet<Tuple<int, int>> roboSantaHouses = Deliver(roboSantaMoves);
+        var santaHouses = Deliver(santaMoves);
+        var roboSantaHouses = Deliver(roboSantaMoves);
 
         santaHouses.UnionWith(roboSantaHouses);
 

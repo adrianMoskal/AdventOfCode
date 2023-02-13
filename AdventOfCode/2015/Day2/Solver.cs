@@ -7,41 +7,34 @@ internal sealed class Solver : ISolver
     public void PartOne(string path)
     {
         string[] lines = File.ReadAllLines(path);
-        var sum = Prepare(lines).Select(x => Area(x) + Sides(x).Min()).Sum();
 
-        AdventConsole.PartOne(sum);
+        var solution = GetWrappingMaterial(lines, Area, Sides);
+
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
     {
         string[] lines = File.ReadAllLines(path);
-        var sum = Prepare(lines).Select(x => Volume(x) + Perimeters(x).Min()).Sum();
 
-        AdventConsole.PartTwo(sum);
+        int solution = GetWrappingMaterial(lines, Volume, Perimeters);
+
+        AdventConsole.PartTwo(solution);
     }
 
-    private IEnumerable<int[]> Prepare(string[] dimensions)
-    {
-        return dimensions.Select(x => x.Split("x").Select(Int32.Parse).ToArray());
-    }
+    private int GetWrappingMaterial(string[] dimensions, Func<int[], int> wrappingFunc, Func<int[], int[]> additionalFunc)
+        => dimensions.Select(x => x.Split("x").Select(int.Parse).ToArray())
+            .Select(x => wrappingFunc.Invoke(x) + additionalFunc.Invoke(x).Min()).Sum();
 
     private int Area(int[] d)
-    {
-        return 2 * d[0] * d[1] + 2 * d[1] * d[2] + 2 * d[2] * d[0];
-    }
+        => 2 * d[0] * d[1] + 2 * d[1] * d[2] + 2 * d[2] * d[0];
 
     private int Volume(int[] d)
-    {
-        return d[0] * d[1] * d[2];
-    }
+        => d[0] * d[1] * d[2];
 
     private int[] Sides(int[] d)
-    {
-        return new[] { d[0] * d[1], d[0] * d[2] , d[1] * d[2] };
-    }
+        => new[] { d[0] * d[1], d[0] * d[2] , d[1] * d[2] };
 
     private int[] Perimeters(int[] d)
-    {
-        return new[] { 2 * d[0] + 2 * d[1], 2 * d[0] + 2 * d[2], 2 * d[1] + 2 * d[2]};
-    }
+        => new[] { 2 * d[0] + 2 * d[1], 2 * d[0] + 2 * d[2], 2 * d[1] + 2 * d[2]};
 }

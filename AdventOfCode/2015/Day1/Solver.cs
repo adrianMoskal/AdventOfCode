@@ -4,25 +4,24 @@
 [PuzzleName("Not Quite Lisp")]
 internal sealed class Solver : ISolver
 {
-
     public void PartOne(string path)
     {
         string input = File.ReadAllText(path);
 
-        int level = 0;
-        input.Sum(x => x.Equals('(') ? level++ : level--);
+        int solution = GetFloors(input, 0).Last();
 
-        AdventConsole.PartOne(level);
+        AdventConsole.PartOne(solution);
     }
 
     public void PartTwo(string path)
     {
         string input = File.ReadAllText(path);
 
-        int level = 0;
-        var levels = input.Select(x => x.Equals('(') ? ++level : --level).ToList();
-        int position = levels.IndexOf(-1) + 1;
+        int solution = GetFloors(input, 0).ToList().IndexOf(-1) + 1;
 
-        AdventConsole.PartTwo(position);
+        AdventConsole.PartTwo(solution);
     }
+
+    private IEnumerable<int> GetFloors(string input, int level)
+        => input.Select(x => x.Equals('(') ? ++level : --level);
 }
