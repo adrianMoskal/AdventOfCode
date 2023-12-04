@@ -13,7 +13,7 @@ internal sealed class Solver : ISolver
 
         int solution = words.Where(w => w.Count(c => vowels.Contains(c)) >= 3)
             .Where(w => !forbiddens.Any(f => w.Contains(f)))
-            .Where(w => Enumerable.Range(0, w.Length - 1).Any(x => w[x].Equals(w[x + 1])))
+            .Where(w => HasTwiceInRow(w))
             .Count();
 
         AdventConsole.PartOne(solution);
@@ -21,7 +21,23 @@ internal sealed class Solver : ISolver
 
     public void PartTwo(string path)
     {
-        AdventConsole.PartTwoNoSolutionYet();
+        string[] words = File.ReadAllLines(path);
+
+        int solution = words.Count(x => HasPair(x) && HasRepeatingLetterWithOneInBetween(x));
+
+        AdventConsole.PartTwo(solution);
     }
+
+    private bool HasTwiceInRow(string w)
+        => Enumerable.Range(0, w.Length - 1)
+                        .Any(x => w[x].Equals(w[x + 1]));
+
+    private bool HasPair(string w)
+        => Enumerable.Range(0, w.Length - 1)
+                         .Any(i => w.IndexOf(w.Substring(i, 2), i + 2) != -1);
+
+    private bool HasRepeatingLetterWithOneInBetween(string w)
+        => Enumerable.Range(0, w.Length - 2)
+                         .Any(i => w[i] == w[i + 2]);
 }
 
